@@ -1,6 +1,12 @@
 "use client";
 
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import {
+  color,
+  motion,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Image from "next/image";
 import { Instagram, Linkedin, Youtube } from "lucide-react";
@@ -92,7 +98,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center overflow-hidden bg-[#fbfbf8]">
       <motion.div
-        className="fixed top-0 left-0 right-0 h-2 bg-[#467eb5] origin-left z-50"
+        className="fixed top-0 left-0 right-0 h-2 rounded-full bg-[#467eb5] origin-left z-50"
         style={{ scaleX }}
       />
 
@@ -140,21 +146,52 @@ export default function Home() {
           About IEEE Ashoka
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <AnimatedCard title="Our Mission" color="#467eb5">
-            IEEE Ashoka is dedicated to fostering technological innovation and
-            excellence for the benefit of humanity, inspiring a global community
-            of innovators.
-          </AnimatedCard>
-          <AnimatedCard title="What We Do" color="#f186c1">
-            We organize workshops, seminars, and projects that allow students to
-            apply their knowledge to real-world problems, bridging the gap
-            between academia and industry.
-          </AnimatedCard>
-          <AnimatedCard title="Our Vision" color="#d47557">
-            To be the leading platform for technological advancement and
-            professional growth, nurturing future leaders in the field of
-            electrical and electronic engineering.
-          </AnimatedCard>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className={`bg-[#467eb5] p-6 rounded-lg shadow-lg`}
+          >
+            <h3 className="text-2xl font-semibold mb-4 text-[#302f2f]">
+              Our Mission
+            </h3>
+            <div className="text-[#302f2f]">
+              IEEE Ashoka is dedicated to fostering technological innovation and
+              excellence for the benefit of humanity, inspiring a global
+              community of innovators.
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className={`bg-[#f186c1] p-6 rounded-lg shadow-lg`}
+          >
+            <h3 className="text-2xl font-semibold mb-4 text-[#302f2f]">
+              What We Do
+            </h3>
+            <div className="text-[#302f2f]">
+              We organize workshops, seminars, and projects that allow students
+              to apply their knowledge to real-world problems, bridging the gap
+              between academia and industry.
+            </div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className={`bg-[#d47557] p-6 rounded-lg shadow-lg`}
+          >
+            <h3 className="text-2xl font-semibold mb-4 text-[#302f2f]">
+              Our Vision
+            </h3>
+            <div className="text-[#302f2f]">
+              To be the leading platform for technological advancement and
+              professional growth, nurturing future leaders in the field of
+              electrical and electronic engineering.
+            </div>
+          </motion.div>
         </div>
       </Section>
 
@@ -163,7 +200,11 @@ export default function Home() {
         <h2 className="text-4xl font-bold mb-12">Upcoming Events</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {events.map((event, index) => (
-            <AnimatedCard key={event.id} delay={index * 0.1} title={event.title}>
+            <AnimatedCard
+              key={event.id}
+              delay={index * 0.1}
+              title={event.title}
+            >
               <div className="relative h-48 mb-4">
                 <Image
                   src={event.image}
@@ -177,7 +218,7 @@ export default function Home() {
                 {event.title}
               </h3>
               <p className="text-[#302f2f] mb-4">
-                {new Date(event.date).toLocaleDateString()}
+                {new Date(event.date).toDateString()}
               </p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -278,7 +319,7 @@ const Section = ({
 const AnimatedCard = ({
   children,
   title,
-  color = "#fbfbf8",
+  color,
   delay = 0,
 }: {
   children: React.ReactNode;
