@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import CustomNavbar from "@/components/navbar";
+import Footer from "@/components/footer";
 export const metadata: Metadata = {
-  title: "IEEE Website",
-  description: "IEEE Website",
+  title: "IEEE Ashoka Website",
+  description: "IEEE Ashoka Website",
 };
 
 export default function RootLayout({
@@ -16,6 +17,7 @@ export default function RootLayout({
       <body>
         <CustomNavbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

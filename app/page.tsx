@@ -9,7 +9,7 @@ import {
 } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Image from "next/image";
-import { Instagram, Linkedin, Youtube } from "lucide-react";
+import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 
 import heroImage from "@/public/images/hero-1.jpg";
 const events = [
@@ -17,19 +17,33 @@ const events = [
     id: 1,
     title: "Tech Talk: AI in Healthcare",
     date: "2024-03-15",
-    image: "/placeholder.svg?height=200&width=300",
+    src: "/placeholder.svg?height=200&width=300",
+    category: "Workshop",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     id: 2,
     title: "Workshop: IoT Basics",
     date: "2024-03-22",
-    image: "/placeholder.svg?height=200&width=300",
+    src: "/placeholder.svg?height=200&width=300",
+    category: "Workshop",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     id: 3,
     title: "Hackathon: Sustainable Solutions",
     date: "2024-04-05",
-    image: "/placeholder.svg?height=200&width=300",
+    src: "/placeholder.svg?height=200&width=300",
+    category: "Hackathon",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  },
+  {
+    id: 4,
+    title: "Networking Mixer",
+    date: "2024-04-12",
+    src: "/placeholder.svg?height=200&width=300",
+    category: "Networking",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
 ];
 
@@ -66,27 +80,6 @@ const photos = [
   },
 ];
 
-const socialLinks = [
-  {
-    id: 1,
-    icon: Instagram,
-    href: "https://www.instagram.com/ieee_ashoka",
-    label: "Instagram",
-  },
-  {
-    id: 2,
-    icon: Linkedin,
-    href: "https://www.linkedin.com/company/ieee-ashoka",
-    label: "LinkedIn",
-  },
-  {
-    id: 3,
-    icon: Youtube,
-    href: "https://www.youtube.com/channel/ieee-ashoka",
-    label: "YouTube",
-  },
-];
-
 export default function Home() {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -94,6 +87,10 @@ export default function Home() {
     damping: 30,
     restDelta: 0.001,
   });
+
+  const cards = events.map((card, index) => (
+    <Card key={card.src} card={card} index={index} />
+  ));
 
   return (
     <main className="flex min-h-screen flex-col items-center overflow-hidden bg-[#fbfbf8]">
@@ -142,7 +139,7 @@ export default function Home() {
 
       {/* About Section */}
       <Section>
-        <h2 className="text-4xl font-bold mb-12 text-[#302f2f]">
+        <h2 className="text-5xl font-bold mb-12 text-[#302f2f]">
           About IEEE Ashoka
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -196,45 +193,16 @@ export default function Home() {
       </Section>
 
       {/* Events Preview Section */}
-      <Section bgColor="#23417c">
-        <h2 className="text-4xl font-bold mb-12">Upcoming Events</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {events.map((event, index) => (
-            <AnimatedCard
-              key={event.id}
-              delay={index * 0.1}
-              title={event.title}
-            >
-              <div className="relative h-48 mb-4">
-                <Image
-                  src={event.image}
-                  alt={event.title}
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-t-lg"
-                />
-              </div>
-              <h3 className="text-xl font-semibold mb-2 text-[#467eb5]">
-                {event.title}
-              </h3>
-              <p className="text-[#302f2f] mb-4">
-                {new Date(event.date).toDateString()}
-              </p>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-[#f186c1] hover:bg-[#d47557] text-[#302f2f] font-bold py-2 px-4 rounded-full text-sm transition duration-300"
-              >
-                Learn More
-              </motion.button>
-            </AnimatedCard>
-          ))}
-        </div>
-      </Section>
+      <div className="container w-full mx-auto h-full py-20">
+        <h2 className="max-w-7xl px-4 text-xl md:text-5xl font-bold text-[#302f2f]">
+          Upcoming Events
+        </h2>
+        <Carousel items={cards} />
+      </div>
 
       {/* Photos Section */}
       <Section>
-        <h2 className="text-4xl font-bold mb-12 text-[#302f2f]">
+        <h2 className="text-5xl font-bold mb-12 text-[#302f2f]">
           Photo Gallery
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -254,36 +222,6 @@ export default function Home() {
                 className="transition-transform duration-300 hover:scale-110"
               />
             </motion.div>
-          ))}
-        </div>
-      </Section>
-
-      {/* Media Section */}
-      <Section bgColor="#467eb5">
-        <h2 className="text-4xl font-bold mb-12 text-[#fbfbf8]">
-          Connect with Us
-        </h2>
-        <div className="flex justify-center space-x-12">
-          {socialLinks.map((link, index) => (
-            <motion.a
-              key={link.id}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              className="flex flex-col items-center"
-            >
-              <div className="bg-[#fbfbf8] text-[#467eb5] p-4 rounded-full mb-2">
-                <link.icon size={32} />
-              </div>
-              <span className="text-sm font-medium text-[#fbfbf8]">
-                {link.label}
-              </span>
-            </motion.a>
           ))}
         </div>
       </Section>
