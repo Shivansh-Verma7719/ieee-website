@@ -1,33 +1,30 @@
 "use client";
-
-import {
-  color,
-  motion,
-  useScroll,
-  useSpring,
-  useTransform,
-} from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import Image from "next/image";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
-
+import Image from "next/image";
 import heroImage from "@/public/images/hero-1.jpg";
+import { Goal, CircleHelp, Telescope } from "lucide-react";
+
 const events = [
   {
     id: 1,
     title: "Tech Talk: AI in Healthcare",
     date: "2024-03-15",
-    src: "/placeholder.svg?height=200&width=300",
+    src: "/images/hero-1.jpg",
     category: "Workshop",
     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    register: "https://forms.gle/321321321321321",
   },
   {
     id: 2,
     title: "Workshop: IoT Basics",
     date: "2024-03-22",
-    src: "/placeholder.svg?height=200&width=300",
+    src: "/images/hero-2.jpg",
     category: "Workshop",
     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    register: "https://forms.gle/321321321321321",
   },
   {
     id: 3,
@@ -36,6 +33,7 @@ const events = [
     src: "/placeholder.svg?height=200&width=300",
     category: "Hackathon",
     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    register: "https://forms.gle/321321321321321",
   },
   {
     id: 4,
@@ -44,38 +42,39 @@ const events = [
     src: "/placeholder.svg?height=200&width=300",
     category: "Networking",
     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    register: "https://forms.gle/321321321321321",
   },
 ];
 
 const photos = [
   {
     id: 1,
-    src: "/placeholder.svg?height=300&width=300",
+    src: "/images/hero-1.jpg",
     alt: "IEEE Ashoka Event 1",
   },
   {
     id: 2,
-    src: "/placeholder.svg?height=300&width=300",
+    src: "/images/hero-2.jpg",
     alt: "IEEE Ashoka Event 2",
   },
   {
     id: 3,
-    src: "/placeholder.svg?height=300&width=300",
+    src: "/images/hero-3.jpg",
     alt: "IEEE Ashoka Event 3",
   },
   {
     id: 4,
-    src: "/placeholder.svg?height=300&width=300",
+    src: "/images/hero-4.jpg",
     alt: "IEEE Ashoka Event 4",
   },
   {
     id: 5,
-    src: "/placeholder.svg?height=300&width=300",
+    src: "/images/hero-5.jpg",
     alt: "IEEE Ashoka Event 5",
   },
   {
     id: 6,
-    src: "/placeholder.svg?height=300&width=300",
+    src: "/images/hero-6.jpg",
     alt: "IEEE Ashoka Event 6",
   },
 ];
@@ -87,6 +86,16 @@ export default function Home() {
     damping: 30,
     restDelta: 0.001,
   });
+
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  // Modified heroScale to stop at 0.8
+  const heroScale = useTransform(scrollYProgress, [0, 0.2, 1], [1, 0.92, 0.92]);
+  const heroBorderRadius = useTransform(scrollYProgress, [0, 0.2], [0, 28]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0.8]);
 
   const cards = events.map((card, index) => (
     <Card key={card.src} card={card} index={index} />
@@ -100,7 +109,15 @@ export default function Home() {
       />
 
       {/* Hero Section */}
-      <section className="w-full h-screen flex items-center justify-center relative overflow-hidden bg-[#23417c]">
+      <motion.section
+        id="hero"
+        style={{
+          scale: heroScale,
+          borderRadius: heroBorderRadius,
+          opacity: heroOpacity,
+        }}
+        className="w-full h-screen flex items-center justify-center relative overflow-hidden bg-[#23417c]"
+      >
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -116,7 +133,7 @@ export default function Home() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-[#f186c1] hover:bg-[#d47557] text-[#302f2f] font-bold py-3 px-8 rounded-full text-lg transition duration-300"
+            className="bg-[#f186c1] hover:bg-[#d47557] text-[#fbfbf8] font-bold py-3 px-8 rounded-full text-lg transition duration-300"
           >
             Discover More
           </motion.button>
@@ -135,11 +152,11 @@ export default function Home() {
             className="filter brightness-50"
           />
         </motion.div>
-      </section>
+      </motion.section>
 
       {/* About Section */}
       <Section>
-        <h2 className="text-5xl font-bold mb-12 text-[#302f2f]">
+        <h2 className="text-4xl md:text-5xl font-bold mb-12 text-[#302f2f]">
           About IEEE Ashoka
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -147,12 +164,15 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className={`bg-[#467eb5] p-6 rounded-lg shadow-lg`}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.95 }}
+            className={`bg-[#467eb5] p-6 rounded-[1.75rem] shadow-2xl`}
           >
-            <h3 className="text-2xl font-semibold mb-4 text-[#302f2f]">
+            <h3 className="text-2xl font-semibold mb-4 text-[#fbfbf8] flex items-center gap-2">
+              <Goal className="w-8 h-8" />
               Our Mission
             </h3>
-            <div className="text-[#302f2f]">
+            <div className="text-[#fbfbf8]">
               IEEE Ashoka is dedicated to fostering technological innovation and
               excellence for the benefit of humanity, inspiring a global
               community of innovators.
@@ -163,12 +183,15 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className={`bg-[#f186c1] p-6 rounded-lg shadow-lg`}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.95 }}
+            className={`bg-[#f186c1] p-6 rounded-[1.75rem] shadow-2xl`}
           >
-            <h3 className="text-2xl font-semibold mb-4 text-[#302f2f]">
+            <h3 className="text-2xl font-semibold mb-4 text-[#fbfbf8] flex items-center gap-2">
+              <CircleHelp className="w-8 h-8" />
               What We Do
             </h3>
-            <div className="text-[#302f2f]">
+            <div className="text-[#fbfbf8]">
               We organize workshops, seminars, and projects that allow students
               to apply their knowledge to real-world problems, bridging the gap
               between academia and industry.
@@ -178,12 +201,15 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className={`bg-[#d47557] p-6 rounded-lg shadow-lg`}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.95 }}
+            className={`bg-[#d47557] p-6 rounded-[1.75rem] shadow-2xl`}
           >
-            <h3 className="text-2xl font-semibold mb-4 text-[#302f2f]">
+            <h3 className="text-2xl font-semibold mb-4 text-[#fbfbf8] flex items-center gap-2">
+              <Telescope className="w-8 h-8" />
               Our Vision
             </h3>
-            <div className="text-[#302f2f]">
+            <div className="text-[#fbfbf8]">
               To be the leading platform for technological advancement and
               professional growth, nurturing future leaders in the field of
               electrical and electronic engineering.
@@ -193,34 +219,45 @@ export default function Home() {
       </Section>
 
       {/* Events Preview Section */}
-      <div className="container w-full mx-auto h-full py-20">
-        <h2 className="max-w-7xl px-4 text-xl md:text-5xl font-bold text-[#302f2f]">
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="container w-full mx-auto h-full py-10"
+      >
+        <h2 className="max-w-7xl px-4 text-4xl md:text-5xl font-bold text-[#302f2f]">
           Upcoming Events
         </h2>
         <Carousel items={cards} />
-      </div>
+      </motion.div>
 
       {/* Photos Section */}
-      <Section>
-        <h2 className="text-5xl font-bold mb-12 text-[#302f2f]">
+      <Section gradient>
+        <h2 className="text-4xl md:text-5xl font-bold mb-12 text-[#302f2f]">
           Photo Gallery
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {photos.map((photo, index) => (
+          {photos?.map((photo, index) => (
             <motion.div
               key={photo.id}
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative aspect-square overflow-hidden rounded-lg shadow-lg"
+              className="relative aspect-square overflow-hidden rounded-[1.75rem] shadow-2xl group"
             >
               <Image
                 src={photo.src}
                 alt={photo.alt}
                 layout="fill"
                 objectFit="cover"
-                className="transition-transform duration-300 hover:scale-110"
+                className="transition-all duration-300 group-hover:scale-110 group-hover:brightness-50"
               />
+              <div className="absolute inset-0 flex items-end p-3 justify-left opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p className="text-[#fbfbf8] text-center font-semibold px-4 py-2 text-md md:text-2xl">
+                  {photo.alt}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -232,9 +269,11 @@ export default function Home() {
 const Section = ({
   children,
   bgColor = "#fbfbf8",
+  gradient = false,
 }: {
   children: React.ReactNode;
   bgColor?: string;
+  gradient?: boolean;
 }) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -247,35 +286,17 @@ const Section = ({
       initial={{ opacity: 0 }}
       animate={inView ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className={`w-full py-20 ${bgColor}`}
+      className={`w-full py-10 ${bgColor}`}
+      style={
+        gradient
+          ? {
+              background: "conic-gradient(from 45deg, #23417c, #d47557)",
+              opacity: 0.1,
+            }
+          : {}
+      }
     >
       <div className="container mx-auto px-4">{children}</div>
     </motion.section>
-  );
-};
-
-const AnimatedCard = ({
-  children,
-  title,
-  color,
-  delay = 0,
-}: {
-  children: React.ReactNode;
-  title: string;
-  color?: string;
-  delay?: number;
-}) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay }}
-      className={`bg-[${color}] p-6 rounded-lg shadow-lg`}
-    >
-      {title && (
-        <h3 className="text-2xl font-semibold mb-4 text-[#302f2f]">{title}</h3>
-      )}
-      <div className="text-[#302f2f]">{children}</div>
-    </motion.div>
   );
 };

@@ -8,7 +8,8 @@ const events = [
     date: 'October 15, 2024', 
     category: 'Hackathon',
     content: 'Join us for 24 hours of coding, creativity, and innovation!',
-    src: '/images/hero-5.jpg'
+    src: '/images/hero-5.jpg',
+    register: '/events/1'
   },
   { 
     id: '2', 
@@ -16,7 +17,8 @@ const events = [
     date: 'November 5, 2024', 
     category: 'Workshop',
     content: 'Learn about the latest applications of AI in the healthcare industry.',
-    src: '/images/hero-4.jpg'
+    src: '/images/hero-4.jpg',
+    register: '/events/2'
   },
   { 
     id: '3', 
@@ -24,7 +26,8 @@ const events = [
     date: 'December 1, 2024', 
     category: 'Networking',
     content: 'Connect with professionals and students in the tech industry.',
-    src: '/images/hero-3.jpg'
+    src: '/images/hero-3.jpg',
+    register: '/events/3'
   },
 ];
 

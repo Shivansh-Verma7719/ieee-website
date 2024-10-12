@@ -9,6 +9,7 @@ interface EventCardProps {
   category: string;
   content: string;
   src: string;
+  register: string;
 }
 
 const EventCard: React.FC<EventCardProps> = ({
@@ -18,6 +19,7 @@ const EventCard: React.FC<EventCardProps> = ({
   category,
   content,
   src,
+  register,
 }) => {
   return (
     <div className="border rounded-lg p-6 md:p-10 mb-4 shadow-md flex flex-col md:flex-row">
@@ -30,7 +32,7 @@ const EventCard: React.FC<EventCardProps> = ({
           Learn More
         </Link>
       </div>
-      <div className="w-full md:w-1/3 lg:w-1/4 flex-shrink-0 md:p-2 rounded-lg">
+      <div className="w-full md:w-1/3 flex-shrink-0 md:p-2 rounded-lg">
         <div className="rounded-xl overflow-hidden shadow-[0_0_20px_rgba(0,0,0,0.5)] transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,0,0,0.3)] hover:scale-[1.02]">
           <Image
             src={src}
