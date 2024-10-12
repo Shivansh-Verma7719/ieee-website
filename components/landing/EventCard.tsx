@@ -20,8 +20,8 @@ const EventCard: React.FC<EventCardProps> = ({
   src,
 }) => {
   return (
-    <div className="border rounded-lg p-10 mb-4 shadow-md flex">
-      <div className="flex-grow">
+    <div className="border rounded-lg p-6 md:p-10 mb-4 shadow-md flex flex-col md:flex-row">
+      <div className="flex-grow mb-6 md:mb-0 md:pr-6">
         <h2 className="text-2xl font-bold mb-2">{title}</h2>
         <p className="mb-2">{date}</p>
         <p className="mb-2">{category}</p>
@@ -30,7 +30,7 @@ const EventCard: React.FC<EventCardProps> = ({
           Learn More
         </Link>
       </div>
-      <div className="w-1/4 flex-shrink-0 p-2 rounded-lg">
+      <div className="w-full md:w-1/3 lg:w-1/4 flex-shrink-0 md:p-2 rounded-lg">
         <div className="rounded-xl overflow-hidden shadow-[0_0_20px_rgba(0,0,0,0.5)] transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,0,0,0.3)] hover:scale-[1.02]">
           <Image
             src={src}

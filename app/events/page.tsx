@@ -30,13 +30,13 @@ const events = [
 
 const EventsPage = () => {
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="space-y-10">
-        <h1 className="text-4xl font-bold mb-8 pt-20">Upcoming Events</h1>
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="space-y-8 sm:space-y-10">
+        <h1 className="text-3xl sm:text-4xl font-bold mb-6 sm:mb-8 pt-12 sm:pt-20">Upcoming Events</h1>
         {events.map((event) => (
           <EventCard key={event.id} {...event} />
         ))}
-        <h1 className="text-4xl font-bold mb-8 pt-20">Past Events</h1>
+        <h1 className="text-3xl sm:text-4xl font-bold mb-6 sm:mb-8 pt-12 sm:pt-20">Past Events</h1>
         {events.map((event) => (
           <EventCard key={event.id} {...event} />
         ))}
