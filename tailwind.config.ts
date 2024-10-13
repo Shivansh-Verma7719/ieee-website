@@ -1,6 +1,9 @@
 import { nextui } from "@nextui-org/theme";
 import type { Config } from "tailwindcss";
 
+// Import the Tailwind Typography plugin
+import typography from '@tailwindcss/typography';
+
 const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -12,11 +15,14 @@ const config: Config = {
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
     },
   },
-  plugins: [nextui()],
+  plugins: [
+    nextui(),  // Keep NextUI as a plugin
+    typography() // Add the Tailwind Typography plugin
+  ],
 };
+
 export default config;

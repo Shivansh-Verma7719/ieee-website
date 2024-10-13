@@ -29,10 +29,13 @@ export default function EventPage({ params }: { params: { id: string } }) {
         <p><strong>Location:</strong> {event.location}</p>
         <p><strong>Registration:</strong> {event.registration}</p>
       </div>
-      <div className="mb-6">
+      
+      {/* Use Tailwind Typography plugin here */}
+      <div className="prose mb-6">
         <h2 className="text-xl font-semibold mb-2">Description</h2>
         <p>{event.description}</p>
       </div>
+
       <Link href="/events" className="text-blue-500 hover:underline">
         &larr; Back to Events
       </Link>
