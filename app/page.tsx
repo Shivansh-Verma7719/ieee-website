@@ -234,7 +234,7 @@ export default function Home() {
 
       {/* Photos Section */}
       <Section gradient>
-        <h2 className="text-4xl md:text-5xl font-bold mb-12 text-[#302f2f]">
+        <h2 className="text-4xl md:text-5xl font-bold mb-12 pt-12 text-white">
           Photo Gallery
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -290,7 +290,7 @@ const Section = ({
       style={
         gradient
           ? {
-              background: "conic-gradient(from 45deg, #23417c, #d47557)",
+              background: "linear-gradient(to bottom right, #23417c 50%, #d47557 50%)",
               opacity: 0.1,
             }
           : {}
