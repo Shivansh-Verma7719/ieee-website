@@ -8,35 +8,18 @@ import React, {
 } from "react";
 import { useInView } from "react-intersection-observer";
 import { IconArrowNarrowLeft, IconArrowNarrowRight } from "@tabler/icons-react";
-import HeroImage from "@/public/images/hero-1.jpg";
 import { cn } from "@/lib/utils";
-import { AnimatePresence, motion } from "framer-motion";
+import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
 import Image, { ImageProps } from "next/image";
-import { useOutsideClick } from "@/hooks/use-outside-click";
-import {
-  Modal,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  useDisclosure,
-} from "@nextui-org/modal";
-import { Button } from "@nextui-org/button";
-import Link from "next/link";
+import { Event } from "@/app/events";
+
 interface CarouselProps {
   items: JSX.Element[];
   initialScroll?: number;
 }
 
-type Card = {
-  id: number;
-  date: string;
-  src: string;
-  title: string;
-  category: string;
-  content: React.ReactNode;
-  register: string;
-};
+type Card = Event;
 
 export const CarouselContext = createContext<{
   onCardClose: (index: number) => void;
@@ -170,13 +153,12 @@ export const Card = ({
   index: number;
   layout?: boolean;
 }) => {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
-
+  const router = useRouter();
   return (
     <>
       <motion.button
-        layoutId={layout ? `card-${card.title}` : undefined}
-        onClick={onOpen}
+        layoutId={layout ? `card-${card.name}` : undefined}
+        onClick={() => router.push(`/events/${card.id}`)}
         className="rounded-[1.75rem] bg-gray-100 dark:bg-neutral-900 h-[30rem] w-[16.25rem] md:h-[46.25rem] md:w-[25.313rem] overflow-hidden flex flex-col items-start justify-start relative z-10 hover:scale-[1.02] transition-all duration-400"
       >
         <div className="absolute h-full top-0 inset-x-0 bg-gradient-to-b from-black/50 via-transparent to-transparent z-30 pointer-events-none" />
@@ -194,56 +176,25 @@ export const Card = ({
             {card.category}
           </motion.p>
           <motion.p
-            layoutId={layout ? `title-${card.title}` : undefined}
+            layoutId={layout ? `location-${card.location}` : undefined}
+            className="text-white text-sm md:text-base font-medium text-left"
+          >
+            {card.location}
+          </motion.p>
+          <motion.p
+            layoutId={layout ? `title-${card.name}` : undefined}
             className="text-white text-xl md:text-3xl font-semibold max-w-xs text-left [text-wrap:balance] my-2"
           >
-            {card.title}
+            {card.name}
           </motion.p>
         </div>
         <BlurImage
-          src={card.src}
-          alt={card.title}
+          src={card.image}
+          alt={card.name}
           fill
           className="object-cover absolute z-10 inset-0"
         />
       </motion.button>
-
-      <Modal
-        isOpen={isOpen}
-        onOpenChange={onOpenChange}
-        size="xl"
-        placement="auto"
-      >
-        <ModalContent>
-          {(onClose) => (
-            <>
-              <ModalHeader className="flex flex-col gap-1">
-                {card.title}
-              </ModalHeader>
-              <ModalBody>
-                <p>{card.date}</p>
-                <p>{card.category}</p>
-                <p>{card.content}</p>
-                <p>
-                  <Button
-                    as={Link}
-                    color="primary"
-                    variant="flat"
-                    href={`/events/${card.id}`}
-                  >
-                    Register
-                  </Button>
-                </p>
-              </ModalBody>
-              <ModalFooter>
-                <Button color="danger" variant="light" onPress={onClose}>
-                  Close
-                </Button>
-              </ModalFooter>
-            </>
-          )}
-        </ModalContent>
-      </Modal>
     </>
   );
 };
