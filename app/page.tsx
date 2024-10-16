@@ -1,50 +1,56 @@
 "use client";
 import { useState, useEffect } from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 import Image from "next/image";
 import heroImage from "@/public/images/hero-1.jpg";
-import { Goal, CircleHelp, Telescope } from "lucide-react";
+import { Goal, CircleHelp, Telescope, MoveRight as ArrowRight } from "lucide-react";
+import getEvents, { Event } from "./events";
 
-const events = [
-  {
-    id: 1,
-    title: "Tech Talk: AI in Healthcare",
-    date: "2024-03-15",
-    src: "/images/hero-1.jpg",
-    category: "Workshop",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    register: "https://forms.gle/321321321321321",
-  },
-  {
-    id: 2,
-    title: "Workshop: IoT Basics",
-    date: "2024-03-22",
-    src: "/images/hero-2.jpg",
-    category: "Workshop",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    register: "https://forms.gle/321321321321321",
-  },
-  {
-    id: 3,
-    title: "Hackathon: Sustainable Solutions",
-    date: "2024-04-05",
-    src: "/placeholder.svg?height=200&width=300",
-    category: "Hackathon",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    register: "https://forms.gle/321321321321321",
-  },
-  {
-    id: 4,
-    title: "Networking Mixer",
-    date: "2024-04-12",
-    src: "/placeholder.svg?height=200&width=300",
-    category: "Networking",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    register: "https://forms.gle/321321321321321",
-  },
-];
+// const events = [
+//   {
+//     id: 1,
+//     title: "Tech Talk: AI in Healthcare",
+//     date: "2024-03-15",
+//     src: "/images/hero-1.jpg",
+//     category: "Workshop",
+//     location: "Virtual Event",
+//     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+//     register: "https://forms.gle/321321321321321",
+//   },
+//   {
+//     id: 2,
+//     title: "Workshop: IoT Basics",
+//     date: "2024-03-22",
+//     src: "/images/hero-2.jpg",
+//     category: "Workshop",
+//     location: "University Campus",
+//     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+//     register: "https://forms.gle/321321321321321",
+//   },
+//   {
+//     id: 3,
+//     title: "Hackathon: Sustainable Solutions",
+//     date: "2024-04-05",
+//     src: "/placeholder.svg?height=200&width=300",
+//     category: "Hackathon",
+//     location: "University Campus",
+//     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+//     register: "https://forms.gle/321321321321321",
+//   },
+//   {
+//     id: 4,
+//     title: "Networking Mixer",
+//     date: "2024-04-12",
+//     src: "/placeholder.svg?height=200&width=300",
+//     category: "Networking",
+//     location: "TechHub Downtown",
+//     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+//     register: "https://forms.gle/321321321321321",
+//   },
+// ];
+
 
 const photos = [
   {
@@ -81,11 +87,6 @@ const photos = [
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
 
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -96,17 +97,22 @@ export default function Home() {
   const heroScale = useTransform(scrollYProgress, [0, 0.2, 1], [1, 0.92, 0.92]);
   const heroBorderRadius = useTransform(scrollYProgress, [0, 0.2], [0, 28]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0.8]);
+  const [events, setEvents] = useState<Event[]>([]);
 
-  const cards = events.map((card, index) => (
-    <Card key={card.src} card={card} index={index} />
+  useEffect(() => {
+    const fetchEvents = async () => {
+      const res = await getEvents();
+      setEvents(res);
+    };
+    fetchEvents();
+  }, []);
+
+  const cards = events.map((event, index) => (
+    <Card key={event.id} card={event} index={index} />
   ));
 
   return (
     <main className="flex min-h-screen flex-col items-center overflow-hidden bg-[#fbfbf8]">
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-2 rounded-full bg-[#467eb5] origin-left z-50"
-        style={{ scaleX }}
-      />
 
       {/* Hero Section */}
       <motion.section
@@ -130,13 +136,6 @@ export default function Home() {
           <p className="text-xl md:text-2xl text-[#fbfbf8] mb-8">
             Empowering Innovation, Inspiring Technology
           </p>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-[#f186c1] hover:bg-[#d47557] text-[#fbfbf8] font-bold py-3 px-8 rounded-full text-lg transition duration-300"
-          >
-            Discover More
-          </motion.button>
         </motion.div>
         <motion.div
           className="absolute inset-0 z-0"
@@ -156,8 +155,8 @@ export default function Home() {
 
       {/* About Section */}
       <Section>
-        <h2 className="text-4xl md:text-5xl font-bold mb-12 text-[#302f2f]">
-          About IEEE Ashoka
+        <h2 className="text-4xl flex flex-row items-center gap-4 md:text-5xl font-bold mb-12 text-[#302f2f]">
+          About IEEE Ashoka <a href="/about"><ArrowRight className="w-8 h-8 hover:scale-110 transition-all duration-300" /></a>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <motion.div
@@ -172,7 +171,7 @@ export default function Home() {
               <Goal className="w-8 h-8" />
               Our Mission
             </h3>
-            <div className="text-[#fbfbf8]">
+            <div className="text-[#fbfbf8] text-lg">
               IEEE Ashoka is dedicated to fostering technological innovation and
               excellence for the benefit of humanity, inspiring a global
               community of innovators.
@@ -182,7 +181,7 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.95 }}
             className={`bg-[#f186c1] p-6 rounded-[1.75rem] shadow-2xl`}
@@ -191,7 +190,7 @@ export default function Home() {
               <CircleHelp className="w-8 h-8" />
               What We Do
             </h3>
-            <div className="text-[#fbfbf8]">
+            <div className="text-[#fbfbf8] text-lg">
               We organize workshops, seminars, and projects that allow students
               to apply their knowledge to real-world problems, bridging the gap
               between academia and industry.
@@ -209,7 +208,7 @@ export default function Home() {
               <Telescope className="w-8 h-8" />
               Our Vision
             </h3>
-            <div className="text-[#fbfbf8]">
+            <div className="text-[#fbfbf8] text-lg">
               To be the leading platform for technological advancement and
               professional growth, nurturing future leaders in the field of
               electrical and electronic engineering.
@@ -226,16 +225,16 @@ export default function Home() {
         transition={{ duration: 0.5 }}
         className="container w-full mx-auto h-full py-10"
       >
-        <h2 className="max-w-7xl px-4 text-4xl md:text-5xl font-bold text-[#302f2f]">
-          Upcoming Events
+        <h2 className="max-w-7xl flex flex-row items-center gap-4 px-4 text-4xl md:text-5xl font-bold text-[#302f2f]">
+          Upcoming Events <a href="/events"><ArrowRight className="w-8 h-8 hover:scale-110 transition-all duration-300" /></a>
         </h2>
         <Carousel items={cards} />
       </motion.div>
 
       {/* Photos Section */}
       <Section gradient>
-        <h2 className="text-4xl md:text-5xl font-bold mb-12 pt-12 text-white">
-          Photo Gallery
+        <h2 className="text-4xl flex flex-row items-center gap-4 md:text-5xl font-bold mb-12 pt-12 text-white">
+          Photo Gallery <a href="/about#gallery"><ArrowRight className="w-8 h-8 hover:scale-110 transition-all duration-300" /></a>
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {photos?.map((photo, index) => (
