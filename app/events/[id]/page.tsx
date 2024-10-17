@@ -1,6 +1,6 @@
-import React from 'react';
-import { notFound } from 'next/navigation';
-import Link from 'next/link';
+import React from "react";
+import { notFound } from "next/navigation";
+import Link from "next/link";
 
 // Mock function to fetch event data
 const getEventById = (id: string) => {
@@ -9,7 +9,7 @@ const getEventById = (id: string) => {
     { id: '2', title: 'Tech Talk: AI in Healthcare', date: 'November 5, 2024', description: 'Learn about the latest applications of AI in the healthcare industry.', location: 'Virtual Event', time: '6:00 PM - 7:30 PM', registration: 'Open until November 3, 2024', coverPhoto: '/images/hero-4.jpg' },
     { id: '3', title: 'Networking Mixer', date: 'December 1, 2024', description: 'Connect with professionals and students in the tech industry.', location: 'TechHub Downtown', time: '7:00 PM - 9:00 PM', registration: 'Open until November 28, 2024', coverPhoto: '/images/hero-3.jpg' },
   ];
-  return events.find(event => event.id === id);
+  return events.find((event) => event.id === id);
 };
 
 export default function EventPage({ params }: { params: { id: string } }) {

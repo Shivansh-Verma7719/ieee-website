@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { Instagram, Linkedin, Youtube } from "lucide-react";
+import { Instagram, Linkedin, Youtube, Twitter, Mail } from "lucide-react";
 import { useInView } from "react-intersection-observer";
 const Footer = () => {
 
@@ -11,21 +11,33 @@ const Footer = () => {
 
   const socialLinks = [
     {
+      id: 0,
+      icon: Mail,
+      href: "mailto:ieee.asb@ashoka.edu.in",
+      label: "Email",
+    },
+    {
       id: 1,
       icon: Instagram,
-      href: "https://www.instagram.com/ieee_ashoka",
+      href: "https://www.instagram.com/ieee.ashoka",
       label: "Instagram",
     },
     {
       id: 2,
+      icon: Twitter,
+      href: "https://x.com/IEEEAshoka",
+      label: "Twitter",
+    },
+    {
+      id: 3,
       icon: Linkedin,
-      href: "https://www.linkedin.com/company/ieee-ashoka",
+      href: "https://www.linkedin.com/company/ieee-ashoka-student-branch",
       label: "LinkedIn",
     },
     {
       id: 3,
       icon: Youtube,
-      href: "https://www.youtube.com/channel/ieee-ashoka",
+      href: "https://www.youtube.com/@IEEEAshoka",
       label: "YouTube",
     },
   ];
