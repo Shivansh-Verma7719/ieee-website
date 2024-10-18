@@ -11,11 +11,11 @@ export default function Home() {
       imageUrl:  "/images/Suban.jpg"
     },
     
-    { name: "Firstname Lastname", 
+    { name: "Lorem Ipsum", 
       desig: "Title2", 
-      email: "name@example.com", 
-      website: "example.org", 
-      imageUrl: "/images/faculty2.jpg" 
+      email: "lorem.ipsun@ashoka.edu.in", 
+      website: "ashoka.edu.in", 
+      imageUrl: "/images/lorem.png" 
     },
     
     { name: "Firstname Lastname", 
