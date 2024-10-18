@@ -147,7 +147,7 @@ export function ExpandableCardDemo({ cards }: { cards: Event[] }) {
               layoutId={`button-${card.name}-${id}`}
               className="px-4 py-2 text-sm rounded-full font-bold bg-gray-100 hover:bg-[#f186c1] hover:text-white text-black transition-all duration-300 mt-4 md:mt-0"
             >
-              Register
+              Learn More
             </motion.button>
           </motion.div>
         ))}

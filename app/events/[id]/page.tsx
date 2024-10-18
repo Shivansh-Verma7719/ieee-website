@@ -1,64 +1,117 @@
-import React from "react";
+"use client";
+import React, { useState, useEffect } from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-
-// Mock function to fetch event data
-const getEventById = (id: string) => {
-  const events = [
-    { id: '1', title: 'Annual Hackathon', date: 'October 15, 2024', description: 'Join us for 24 hours of coding, creativity, and innovation!', location: 'University Campus', time: '9:00 AM - 9:00 AM (next day)', registration: 'Open until October 10, 2024', coverPhoto: '/images/hero-5.jpg' },
-    { id: '2', title: 'Tech Talk: AI in Healthcare', date: 'November 5, 2024', description: 'Learn about the latest applications of AI in the healthcare industry.', location: 'Virtual Event', time: '6:00 PM - 7:30 PM', registration: 'Open until November 3, 2024', coverPhoto: '/images/hero-4.jpg' },
-    { id: '3', title: 'Networking Mixer', date: 'December 1, 2024', description: 'Connect with professionals and students in the tech industry.', location: 'TechHub Downtown', time: '7:00 PM - 9:00 PM', registration: 'Open until November 28, 2024', coverPhoto: '/images/hero-3.jpg' },
-  ];
-  return events.find((event) => event.id === id);
-};
+import Image from "next/image";
+import { Calendar, MapPin, Clock } from "lucide-react";
+import getEvents, { Event } from "@/app/events";
+import { Skeleton } from "@nextui-org/react";
 
 export default function EventPage({ params }: { params: { id: string } }) {
-  const event = getEventById(params.id);
+  const [event, setEvent] = useState<Event | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchEvent = async () => {
+      try {
+        setLoading(true);
+        const events = await getEvents();
+        const foundEvent = events.find((e) => e.id === parseInt(params.id));
+        if (foundEvent) {
+          setEvent(foundEvent);
+        } else {
+          setLoading(false);
+          notFound();
+        }
+      } catch (error) {
+        console.error("Error fetching event:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchEvent();
+  }, [params.id]);
+
+  if (loading) {
+    return (
+      <div className="container mx-auto px-4 py-24">
+        <Skeleton className="w-full h-96 rounded-lg" />
+        <div className="mt-8 flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-6">
+          <div className="flex-grow">
+            <Skeleton className="w-full h-12 mb-4" />
+            <Skeleton className="w-3/4 h-6 mb-2" />
+            <Skeleton className="w-2/3 h-6 mb-2" />
+            <Skeleton className="w-1/2 h-6" />
+          </div>
+          <Skeleton className="w-full md:w-1/4 h-16" />
+        </div>
+        <div className="mt-8">
+          <Skeleton className="w-full h-48" />
+        </div>
+      </div>
+    );
+  }
 
   if (!event) {
-    notFound();
+    return (
+      <div>
+        <h1>Event not found</h1>
+      </div>
+    );
   }
 
   return (
-    <div className="container mx-auto px-4 py-8 bg-gray-100"> {/* Set page background color */}
-      {/* Cover Photo Section */}
+    <div className="container mx-auto px-4 py-24">
       <div className="relative">
-        <img src={event.coverPhoto} alt={`${event.title} cover photo`} className="w-full h-96 object-cover rounded-lg shadow-lg" />
+        <Image
+          src={event.image}
+          alt={`${event.name}`}
+          width={1000}
+          height={1000}
+          className="w-full h-96 object-cover rounded-lg shadow-lg"
+        />
         <div className="absolute rounded inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <h1 className="text-white text-5xl font-bold">{event.title}</h1>
+          <h1 className="text-center text-5xl font-bold text-[#fbfbf8]">
+            {event.name}
+          </h1>
         </div>
       </div>
-
       {/* Event Details and Register Button Section */}
-      <div className="mt-8 flex flex-col md:flex-row md:space-x-6 h-auto">
-  {/* Event Details */}
-  <div className="bg-white shadow-lg rounded-lg p-6 flex-grow">
-    <h2 className="text-2xl font-semibold mb-4">Event Details</h2>
-    <p><strong>Date:</strong> {event.date}</p>
-    <p><strong>Time:</strong> {event.time}</p>
-    <p><strong>Location:</strong> {event.location}</p>
-    <p><strong>Registration:</strong> {event.registration}</p>
-  </div>
+      <div className="mt-8 flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-6 h-auto">
+        <div className="bg-white shadow-lg rounded-lg p-6 flex flex-col gap-2 flex-grow">
+          <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-[#302f2f]">
+            Event Details
+          </h2>
+          <p className="flex items-center gap-2 md:text-lg">
+            <Calendar className="w-5 h-5" /> {event.date}
+          </p>
+          <p className="flex items-center gap-2 md:text-lg">
+            <Clock className="w-5 h-5" /> {event.time}
+          </p>
+          <p className="flex items-center gap-2 md:text-lg">
+            <MapPin className="w-5 h-5" /> {event.location}
+          </p>
+        </div>
 
-  {/* Register Button */}
-  <div className="bg-white shadow-lg rounded-lg p-6 flex items-center justify-center md:w-1/4 md:h-full h-auto"> {/* Ensures equal height */}
-    <a
-      href="#"
-      className="inline-block bg-blue-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-blue-700 transition"
-    >
-      Register Now
-    </a>
-  </div>
-</div>
-
+        <div className="bg-white shadow-lg rounded-lg p-6 flex items-center justify-center md:w-1/4 h-auto">
+          <a
+            href="#"
+            className="inline-block text-lg bg-blue-600 text-white font-bold py-2 px-6 m-auto rounded-lg hover:bg-blue-700 transition"
+          >
+            Register Now
+          </a>
+        </div>
+      </div>
       {/* Event Description Section */}
       <div className="bg-white shadow-lg rounded-lg p-6 mt-4">
-        <div className="prose mt-8">
-          <h2 className="text-xl font-semibold mb-2">Description</h2>
+        <div className="prose mt-8 md:text-lg">
+          <h2 className="text-2xl md:text-3xl font-semibold mb-2 text-[#302f2f]">
+            Description
+          </h2>
           <p>{event.description}</p>
         </div>
       </div>
-
       {/* Back to Events Link */}
       <Link href="/events" className="text-blue-500 hover:underline block mt-6">
         &larr; Back to Events
