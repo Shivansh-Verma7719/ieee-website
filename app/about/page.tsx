@@ -22,11 +22,6 @@ const AboutPage = () => {
     "/images/lorem.png",
     "/images/lorem.png",
     "/images/lorem.png",
-    "/images/lorem.png",
-    "/images/lorem.png",
-    "/images/lorem.png",
-    "/images/lorem.png",
-    "/images/lorem.png",
     "/images/lorem.png"
   ];
 
@@ -81,7 +76,7 @@ const AboutPage = () => {
         <div className="overflow-x-auto">
           <div className="grid grid-cols-3 gap-2">
             {galleryImages.map((src, index) => (
-              <div key={index} className="p-1">
+              <div key={index} className="p-1 transition transform hover:scale-105">
                 <img
                   className="rounded-lg"
                   src={src}
