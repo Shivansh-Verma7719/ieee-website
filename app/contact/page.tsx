@@ -48,7 +48,11 @@ const ContactPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-blue-100 to-purple-100 pt-24 lg:pt-32 pb-12 px-4 sm:px-6 lg:px-8">
-      <div className="bg-white p-8 rounded-xl shadow-2xl w-full max-w-7xl mx-auto border border-blue-200">
+      <div className="absolute top-0 -left-4 w-[40rem] h-[40rem] bg-[#467eb5] rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+      <div className="absolute top-0 -right-4 w-[40rem] h-[40rem] bg-[#f186c1] rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+      <div className="absolute -bottom-8 left-20 w-[40rem] h-[40rem] bg-[#d47557] rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+
+      <div className="bg-white p-8 rounded-xl shadow-2xl w-full opacity-90 max-w-7xl mx-auto border border-blue-200">
         <div className="flex items-center justify-between mb-6">
           <h1 className="text-4xl font-bold text-[#302f2f]">Contact Us</h1>
         </div>

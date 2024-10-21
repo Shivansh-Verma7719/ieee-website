@@ -5,83 +5,58 @@ import { useInView } from "react-intersection-observer";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 import Image from "next/image";
 import heroImage from "@/public/images/hero-1.jpg";
-import { Goal, CircleHelp, Telescope, MoveRight as ArrowRight } from "lucide-react";
+import {
+  Goal,
+  CircleHelp,
+  Telescope,
+  MoveRight as ArrowRight,
+} from "lucide-react";
 import getEvents, { Event } from "./events";
-
-// const events = [
-//   {
-//     id: 1,
-//     title: "Tech Talk: AI in Healthcare",
-//     date: "2024-03-15",
-//     src: "/images/hero-1.jpg",
-//     category: "Workshop",
-//     location: "Virtual Event",
-//     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-//     register: "https://forms.gle/321321321321321",
-//   },
-//   {
-//     id: 2,
-//     title: "Workshop: IoT Basics",
-//     date: "2024-03-22",
-//     src: "/images/hero-2.jpg",
-//     category: "Workshop",
-//     location: "University Campus",
-//     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-//     register: "https://forms.gle/321321321321321",
-//   },
-//   {
-//     id: 3,
-//     title: "Hackathon: Sustainable Solutions",
-//     date: "2024-04-05",
-//     src: "/placeholder.svg?height=200&width=300",
-//     category: "Hackathon",
-//     location: "University Campus",
-//     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-//     register: "https://forms.gle/321321321321321",
-//   },
-//   {
-//     id: 4,
-//     title: "Networking Mixer",
-//     date: "2024-04-12",
-//     src: "/placeholder.svg?height=200&width=300",
-//     category: "Networking",
-//     location: "TechHub Downtown",
-//     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-//     register: "https://forms.gle/321321321321321",
-//   },
-// ];
-
+import { MasonryPhotoAlbum } from "react-photo-album";
+import "react-photo-album/masonry.css";
 
 const photos = [
   {
     id: 1,
     src: "/images/hero-1.jpg",
     alt: "IEEE Ashoka Event 1",
+    width: 4,
+    height: 3,
   },
   {
     id: 2,
     src: "/images/hero-2.jpg",
     alt: "IEEE Ashoka Event 2",
+    width: 1,
+    height: 1,
   },
   {
     id: 3,
     src: "/images/hero-3.jpg",
     alt: "IEEE Ashoka Event 3",
+    width: 1,
+    height: 1,
   },
   {
     id: 4,
     src: "/images/hero-4.jpg",
     alt: "IEEE Ashoka Event 4",
+    width: 4,
+    height: 3,
   },
   {
     id: 5,
     src: "/images/hero-5.jpg",
     alt: "IEEE Ashoka Event 5",
+    width: 4,
+    height: 3,
   },
   {
     id: 6,
     src: "/images/hero-6.jpg",
     alt: "IEEE Ashoka Event 6",
+    width: 4,
+    height: 3,
   },
 ];
 
@@ -113,7 +88,6 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center overflow-hidden bg-[#fbfbf8]">
-
       {/* Hero Section */}
       <motion.section
         id="hero"
@@ -156,7 +130,10 @@ export default function Home() {
       {/* About Section */}
       <Section>
         <h2 className="text-4xl flex flex-row items-center gap-4 md:text-5xl font-bold mb-12 text-[#302f2f]">
-          About IEEE Ashoka <a href="/about"><ArrowRight className="w-8 h-8 hover:scale-110 transition-all duration-300" /></a>
+          About IEEE Ashoka{" "}
+          <a href="/about">
+            <ArrowRight className="w-8 h-8 hover:scale-110 transition-all duration-300" />
+          </a>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <motion.div
@@ -226,16 +203,34 @@ export default function Home() {
         className="container w-full mx-auto h-full py-10"
       >
         <h2 className="max-w-7xl flex flex-row items-center gap-4 px-4 text-4xl md:text-5xl font-bold text-[#302f2f]">
-          Upcoming Events <a href="/events"><ArrowRight className="w-8 h-8 hover:scale-110 transition-all duration-300" /></a>
+          Upcoming Events{" "}
+          <a href="/events">
+            <ArrowRight className="w-8 h-8 hover:scale-110 transition-all duration-300" />
+          </a>
         </h2>
         <Carousel items={cards} />
       </motion.div>
 
       {/* Photos Section */}
-      <Section gradient>
-        <h2 className="text-4xl flex flex-row items-center gap-4 md:text-5xl font-bold mb-12 pt-12 text-white">
-          Photo Gallery <a href="/about#gallery"><ArrowRight className="w-8 h-8 hover:scale-110 transition-all duration-300" /></a>
+      <motion.section
+      ref={ref}
+      initial={{ opacity: 0 }}
+      animate={inView ? { opacity: 1 } : { opacity: 0 }}
+      transition={{ duration: 0.5 }}
+      className={`w-full py-10 bg-[#fbfbf8] overflow-visible`}
+      >
+        <div className="container mx-auto px-4">
+        <div className="absolute top-0 -left-4 w-[40rem] h-[40rem] bg-[#467eb5] rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+        <div className="absolute top-0 -right-4 w-[40rem] h-[40rem] bg-[#f186c1] rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+        <div className="absolute -bottom-8 left-20 w-[40rem] h-[40rem] bg-[#d47557] rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+
+        <h2 className="text-4xl flex flex-row items-center gap-4 md:text-5xl font-bold mb-12 pt-12 text-[#302f2f]">
+          Photo Gallery
+          <a href="/about#gallery">
+            <ArrowRight className="w-8 h-8 hover:scale-110 transition-all duration-300" />
+          </a>
         </h2>
+
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {photos?.map((photo, index) => (
             <motion.div
@@ -260,7 +255,8 @@ export default function Home() {
             </motion.div>
           ))}
         </div>
-      </Section>
+        </div>
+      </motion.section>
     </main>
   );
 }
@@ -289,7 +285,8 @@ const Section = ({
       style={
         gradient
           ? {
-              background: "linear-gradient(to bottom right, #23417c 50%, #d47557 50%)",
+              background:
+                "linear-gradient(to bottom right, #23417c 50%, #d47557 50%)",
               opacity: 0.1,
             }
           : {}

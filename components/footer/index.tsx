@@ -56,9 +56,9 @@ const Footer = () => {
       initial={{ opacity: 0 }}
       animate={inView ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0.7 }}
-      className={`w-full py-10 bg-[#fbfbf8]`}
+      className={`w-full py-6 bg-[#fbfbf8]`}
     >
-      <div className="flex justify-center space-x-2 md:space-x-12">
+      <div className="flex justify-center space-x-2 md:space-x-12 bg-transparent">
         {socialLinks.map((link, index) => (
           <motion.a
             key={link.id}

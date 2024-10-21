@@ -27,7 +27,7 @@ const AboutPage = () => {
 
   return (
     <>
-      <div className="relative font-sans p-6 max-w-5xl mx-auto rounded-lg shadow-lg pb-10 pt-20 bg-gradient-to-br from-[#23417c] via-[#23417c] to-[#d47557]">
+      <div className="relative font-sans p-6 max-w-5xl mx-5 md:mx-auto rounded-lg shadow-lg pb-10 mt-24 bg-gradient-to-br from-[#23417c] via-[#23417c] to-[#d47557]">
         <header className="pb-4 border-b-2 border-purple-400 mb-8 text-left text-3xl font-bold text-white">
           IEEE ASHOKA UNIVERSITY STUDENT CHAPTER
         </header>
