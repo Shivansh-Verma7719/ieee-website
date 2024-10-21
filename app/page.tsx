@@ -12,7 +12,6 @@ import {
   MoveRight as ArrowRight,
 } from "lucide-react";
 import getEvents, { Event } from "./events";
-import { MasonryPhotoAlbum } from "react-photo-album";
 import "react-photo-album/masonry.css";
 
 const photos = [
