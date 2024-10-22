@@ -40,7 +40,7 @@ const EventsPage = () => {
 
   if (loading) {
     return (
-      <div className="container mx-auto px-6 sm:px-12 lg:px-20 py-12">
+      <div className="container mx-auto px-8 sm:px-20 lg:px-28 py-12">
         <div className="space-y-8 sm:space-y-10">
           <h1 className="text-3xl sm:text-4xl font-bold mb-6 sm:mb-8 pt-12 sm:pt-20">
             Upcoming Events
@@ -60,7 +60,7 @@ const EventsPage = () => {
   }
 
   return (
-    <div className="container mx-auto px-6 sm:px-12 lg:px-20 py-12">
+    <div className="container mx-auto px-12 sm:px-24 lg:px-32 py-12">
       <div className="space-y-8 sm:space-y-10">
         <h1 className="text-3xl sm:text-4xl font-bold mb-6 sm:mb-8 pt-12 sm:pt-20">
           Upcoming Events

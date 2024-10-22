@@ -81,11 +81,11 @@ export function ExpandableCardDemo({ cards }: { cards: Event[] }) {
 
                   <motion.a
                     layoutId={`button-${active.name}-${id}`}
-                    href={active.register}
+                    href={`/events/${active.id}`}
                     target="_blank"
                     className="px-4 py-3 text-sm rounded-full font-bold bg-[#f186c1] text-white"
                   >
-                    Register
+                    View Event
                   </motion.a>
                 </div>
                 <div className="pt-4 relative px-4">
@@ -145,7 +145,7 @@ export function ExpandableCardDemo({ cards }: { cards: Event[] }) {
             </div>
             <motion.button
               layoutId={`button-${card.name}-${id}`}
-              className="px-4 py-2 text-sm rounded-full font-bold bg-gray-100 hover:bg-[#f186c1] hover:text-white text-black transition-all duration-300 mt-4 md:mt-0"
+              className="px-4 py-2 text-sm rounded-full font-bold bg-gray-100 hover:bg-[#f186c1] hover:text-white text-black transition-all duration-100 mt-4 md:mt-0"
             >
               Learn More
             </motion.button>

@@ -96,7 +96,7 @@ export default function EventPage({ params }: { params: { id: string } }) {
 
         <div className="bg-white shadow-lg rounded-lg p-6 flex items-center justify-center md:w-1/4 h-auto">
           <a
-            href="#"
+            href={event.register}
             className="inline-block text-lg bg-blue-600 text-white font-bold py-2 px-6 m-auto rounded-lg hover:bg-blue-700 transition"
           >
             Register Now
