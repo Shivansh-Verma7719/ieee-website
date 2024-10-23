@@ -87,6 +87,9 @@ const AboutPage = () => {
         </button>
       </div> */}
       
+
+
+      
       {/* Timeline Section */}
       <div className="mt-8">
         <h2 className="text-3xl font-bold text-[#23417c]">Our Timeline</h2>
