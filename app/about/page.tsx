@@ -92,30 +92,9 @@ const AboutPage = () => {
         <Timeline data={timelineData} /> {/* Pass timeline data as a prop */}
       </div>
 
-      {/* Dropdown Section: Events and Operations */}
-      <div className="mt-8">
-        <button
-          onClick={toggleDropdown}
-          className="w-full text-left px-6 py-3 text-[#23417c] bg-white rounded-md font-semibold focus:outline-none transition"
-        >
-          {dropdownOpen ? "▼ Events and Operations" : "► Events and Operations"}
-        </button>
-        {dropdownOpen && (
-          <div className="mt-4 p-4 bg-gray-100 rounded-lg shadow-md">
-            <div className="flex space-x-4">
-              <img
-                src="/images/lorem.png"
-                alt="Lorem Ipsum"
-                className="w-48 h-48 object-cover rounded-lg"
-              />
-              <p className="text-gray-700">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada. Fusce sed libero nec urna posuere fermentum. Aenean in felis non felis fringilla auctor at at justo. Suspendisse sit amet velit nisi.
-              </p>
-            </div>
-          </div>
-        )}
-      </div>
+    
 
+    
       {/* Image Gallery */}
       <div className="mt-12 w-full bg-white p-4 rounded-lg shadow-lg">
         <div className="overflow-x-auto whitespace-nowrap">
