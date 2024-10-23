@@ -42,7 +42,8 @@ const AboutPage = () => {
 
   return (
     <>
-      <div className="relative font-sans p-1 max-w-6xl mx-auto rounded-lg shadow-lg pb-10 mt-24 bg-gradient-to-br from-[#23417c] via-[#467eb5] to-[#fbfbf8]">
+      
+      {/* <div className="relative font-sans p-1 max-w-6xl mx-auto rounded-lg shadow-lg pb-10 mt-24 bg-gradient-to-br from-[#23417c] via-[#467eb5] to-[#fbfbf8]">
         <header className="pb-4 border-b-2 border-purple-400 mb-8 text-left text-3xl font-bold text-white">
           IEEE ASHOKA UNIVERSITY STUDENT CHAPTER
         </header>
@@ -84,7 +85,7 @@ const AboutPage = () => {
         <button className="relative z-10 mt-10 px-6 py-2 bg-purple-500 text-white rounded-lg shadow hover:bg-purple-600 transition">
           About IEEE
         </button>
-      </div>
+      </div> */}
       
       {/* Timeline Section */}
       <div className="mt-8">
@@ -94,7 +95,7 @@ const AboutPage = () => {
 
     
 
-    
+
       {/* Image Gallery */}
       <div className="mt-12 w-full bg-white p-4 rounded-lg shadow-lg">
         <div className="overflow-x-auto whitespace-nowrap">
