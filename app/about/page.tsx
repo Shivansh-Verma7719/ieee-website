@@ -1,6 +1,23 @@
 "use client"; // This marks the file as a Client Component
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation'; // Use from next/navigation for Next.js 13
+import Image from "next/image";
+import { Timeline } from "../../components/ui/timeline"; // Import the timeline component
+
+// Define the structure for the timeline data (matching the expected type in Timeline component)
+interface TimelineEntry {
+  title: string;
+  date: string;
+  content: string; // Add 'content' property
+}
+
+const timelineData: TimelineEntry[] = [
+  { title: "Founded", date: "2020-01-01", content: "IEEE Ashoka was founded." },
+  { title: "First Event", date: "2020-03-15", content: "We held our first event focusing on AI and machine learning." },
+  { title: "International Collaboration", date: "2021-05-10", content: "Partnered with IEEE chapters globally for knowledge sharing." },
+  { title: "Hackathon", date: "2022-10-20", content: "Organized a successful 24-hour hackathon." },
+  { title: "Research Publication", date: "2023-06-30", content: "Published research on sustainable technology." }
+];
 
 const AboutPage = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -16,7 +33,7 @@ const AboutPage = () => {
     "/images/lorem.png",
     "/images/lorem.png",
     "/images/lorem.png",
-    "/images/lorem.png"
+    "/images/lorem.png",
   ];
 
   const toggleDropdown = () => {
@@ -68,6 +85,13 @@ const AboutPage = () => {
           About IEEE
         </button>
       </div>
+      
+      {/* Timeline Section */}
+      <div className="mt-8">
+        <h2 className="text-3xl font-bold text-[#23417c]">Our Timeline</h2>
+        <Timeline data={timelineData} /> {/* Pass timeline data as a prop */}
+      </div>
+
       {/* Dropdown Section: Events and Operations */}
       <div className="mt-8">
         <button
@@ -91,21 +115,34 @@ const AboutPage = () => {
           </div>
         )}
       </div>
+
       {/* Image Gallery */}
       <div className="mt-12 w-full bg-white p-4 rounded-lg shadow-lg">
         <div className="overflow-x-auto whitespace-nowrap">
-          <div className="inline-flex">
-            {galleryImages.map((src, index) => (
-              <div key={index} className="p-1 transition transform hover:scale-105">
+          <div className="inline-flex space-x-4">
+            {galleryImages.slice(0, 4).map((src, index) => (
+              <div key={index} className="p-2 transition transform hover:scale-105 flex-shrink-0">
                 <img
                   className="rounded-lg"
                   src={src}
                   alt={`Gallery Image ${index + 1}`}
-                  width={300}
-                  height={300}
+                  width={400}
+                  height={400}
                 />
               </div>
-                        ))}
+            ))}
+            {/* Display rest of the images in a horizontally scrollable view */}
+            {galleryImages.slice(4).map((src, index) => (
+              <div key={index + 4} className="p-2 transition transform hover:scale-105 flex-shrink-0">
+                <img
+                  className="rounded-lg"
+                  src={src}
+                  alt={`Gallery Image ${index + 5}`}
+                  width={400}
+                  height={400}
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>
