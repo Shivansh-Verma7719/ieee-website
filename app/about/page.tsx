@@ -1,112 +1,173 @@
 "use client"; // This marks the file as a Client Component
-import React, { useState } from 'react';
-import { useRouter } from 'next/navigation'; // Use from next/navigation for Next.js 13
+import React, { useState } from "react";
 import Image from "next/image";
-import { Timeline } from "../../components/ui/timeline"; // Import the timeline component
+import { Timeline } from "@/components/ui/timeline";
+import { Button } from "@nextui-org/react";
+import { IconArrowNarrowLeft, IconArrowNarrowRight } from "@tabler/icons-react";
+import EmblaCarousel from "@/components/ui/carousel/carousel";
+import { EmblaOptionsType } from 'embla-carousel'
+import '@/app/about/embla.css'
+const OPTIONS: EmblaOptionsType = { align: 'start', loop: true }
 
-// Define the structure for the timeline data (matching the expected type in Timeline component)
-interface TimelineEntry {
-  title: string;
-  date: string;
-  content: string; // Add 'content' property
-}
-
-const timelineData: TimelineEntry[] = [
-  { title: "Founded", date: "2020-01-01", content: "IEEE Ashoka was founded." },
-  { title: "First Event", date: "2020-03-15", content: "We held our first event focusing on AI and machine learning." },
-  { title: "International Collaboration", date: "2021-05-10", content: "Partnered with IEEE chapters globally for knowledge sharing." },
-  { title: "Hackathon", date: "2022-10-20", content: "Organized a successful 24-hour hackathon." },
-  { title: "Research Publication", date: "2023-06-30", content: "Published research on sustainable technology." }
+const data = [
+  {
+    title: "About",
+    content: (
+      <div>
+        <p className="text-sm md:text-base font-normal mb-8">
+          IEEE Ashoka is a student-led chapter dedicated to fostering innovation
+          and technological advancement on campus. We organize workshops,
+          seminars, and projects to bridge the gap between academic learning and
+          real-world applications in engineering and technology.
+        </p>
+        <div className="grid grid-cols-2 gap-4">
+          <Image
+            src="/images/ieee-ashoka-event-1.jpg"
+            alt="IEEE Ashoka Workshop"
+            width={500}
+            height={500}
+            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-lg"
+          />
+          <Image
+            src="/images/ieee-ashoka-event-2.jpg"
+            alt="IEEE Ashoka Seminar"
+            width={500}
+            height={500}
+            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-lg"
+          />
+          <Image
+            src="/images/ieee-ashoka-project-1.jpg"
+            alt="IEEE Ashoka Project Showcase"
+            width={500}
+            height={500}
+            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-lg"
+          />
+          <Image
+            src="/images/ieee-ashoka-team.jpg"
+            alt="IEEE Ashoka Team"
+            width={500}
+            height={500}
+            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-lg"
+          />
+        </div>
+      </div>
+    ),
+  },
+  {
+    title: "What We Do",
+    content: (
+      <div>
+        <p className="text-neutral-800 text-sm md:text-base font-normal mb-4">
+          IEEE Ashoka offers a wide range of activities and opportunities:
+        </p>
+        <div className="mb-8">
+          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
+            ✅ Technical workshops and hands-on training sessions
+          </div>
+          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
+            ✅ Guest lectures by industry experts and academics
+          </div>
+          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
+            ✅ Hackathons and coding competitions
+          </div>
+          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
+            ✅ Project showcases and tech exhibitions
+          </div>
+          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
+            ✅ Networking events with industry professionals
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-4">
+          <Image
+            src="/images/ieee-ashoka-workshop.jpg"
+            alt="IEEE Ashoka Workshop"
+            width={500}
+            height={500}
+            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-lg"
+          />
+          <Image
+            src="/images/ieee-ashoka-hackathon.jpg"
+            alt="IEEE Ashoka Hackathon"
+            width={500}
+            height={500}
+            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-lg"
+          />
+        </div>
+      </div>
+    ),
+  },
+  {
+    title: "Our Impact",
+    content: (
+      <div>
+        <p className="text-neutral-800 text-sm md:text-base font-normal mb-4">
+          
+        </p>
+      </div>
+    )
+  }
 ];
 
 const AboutPage = () => {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const router = useRouter();
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAtStart, setIsAtStart] = useState(true);
+  const [isAtEnd, setIsAtEnd] = useState(false);
   const galleryImages = [
-    "/images/lorem.png",
-    "/images/lorem.png",
-    "/images/lorem.png",
-    "/images/lorem.png",
-    "/images/lorem.png",
-    "/images/lorem.png",
-    "/images/lorem.png",
-    "/images/lorem.png",
-    "/images/lorem.png",
-    "/images/lorem.png",
-    "/images/lorem.png",
+    { src: "/images/lorem.png", alt: "Lorem" },
+    { src: "/images/lorem.png", alt: "Lorem" },
+    { src: "/images/lorem.png", alt: "Lorem" },
+    { src: "/images/lorem.png", alt: "Lorem" },
+    { src: "/images/lorem.png", alt: "Lorem" },
+    { src: "/images/lorem.png", alt: "Lorem" },
+    { src: "/images/lorem.png", alt: "Lorem" },
+    { src: "/images/lorem.png", alt: "Lorem" },
+    { src: "/images/lorem.png", alt: "Lorem" },
+    { src: "/images/lorem.png", alt: "Lorem" },
   ];
 
-  const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
+  const scrollLeft = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex((prevIndex) => prevIndex - 1);
+      setIsAtEnd(false);
+    }
+    if (currentIndex === 1) {
+      setIsAtStart(true);
+    }
+  };
+
+  const scrollRight = () => {
+    if (currentIndex < galleryImages.length - 4) {
+      setCurrentIndex((prevIndex) => prevIndex + 1);
+      setIsAtStart(false);
+    }
+    if (currentIndex === galleryImages.length - 5) {
+      setIsAtEnd(true);
+    }
   };
 
   return (
     <>
-      
-      {/* <div className="relative font-sans p-1 max-w-6xl mx-auto rounded-lg shadow-lg pb-10 mt-24 bg-gradient-to-br from-[#23417c] via-[#467eb5] to-[#fbfbf8]">
-        <header className="pb-4 border-b-2 border-purple-400 mb-8 text-left text-3xl font-bold text-white">
-          IEEE ASHOKA UNIVERSITY STUDENT CHAPTER
-        </header>
-        <section className="relative z-10 flex justify-between items-start space-x-8">
-          <div className="flex-1 text-left">
-            <h2 className="text-2xl font-semibold mb-4 text-white">Mission and Vision</h2>
-            <div className="bg-transparent px-2 rounded-lg mb-4">
-              <h3 className="text-xl font-semibold mb-2 text-white">Mission Statement</h3>
-              <p className="text-white">
-                The Ashoka chapter focuses on fostering innovation, and collaboration to
-                impact society and improve professional development.
-              </p>
-            </div>
-            <div className="bg-transparent px-2 rounded-lg">
-              <h3 className="text-xl font-semibold mb-2 text-white">Vision Statement</h3>
-              <p className="text-white">
-                To enable evolving ideas that can solve pressing challenges come to life.
-                Create a space that accommodates a diverse set of voices to produce
-                dynamic solutions to the ever-changing world’s challenges.
-              </p>
-            </div>
-          </div>
-          <div>
-            <img
-              src="/images/logo.png"
-              alt="IEEE Ashoka"
-              className="bg-white rounded-[12px] w-72 h-85 object-cover p-2"
-            />
-          </div>
-        </section>
-        <aside className="relative z-10 mt-7 bg-indigo-100 p-6 rounded-lg w-48">
-          <h3 className="text-lg font-semibold mb-2">Get involved:</h3>
-          <ul className="list-none">
-            <li className="mb-2">✔️ Our events</li>
-            <li className="mb-2">✔️ Membership</li>
-            <li>✔️ Sponsorship</li>
-          </ul>
-        </aside>
-        <button className="relative z-10 mt-10 px-6 py-2 bg-purple-500 text-white rounded-lg shadow hover:bg-purple-600 transition">
-          About IEEE
-        </button>
-      </div> */}
-      
-
-
-      
-      {/* Timeline Section */}
-      <div className="mt-8">
-        <h2 className="text-3xl font-bold text-[#23417c]">Our Timeline</h2>
-        <Timeline data={timelineData} /> {/* Pass timeline data as a prop */}
+      <div className="w-full pb-10">
+        <Timeline data={data} />
       </div>
 
-    
-
+      <EmblaCarousel slides={galleryImages} options={OPTIONS} />
 
       {/* Image Gallery */}
-      <div className="mt-12 w-full bg-white p-4 rounded-lg shadow-lg">
-        <div className="overflow-x-auto whitespace-nowrap">
-          <div className="inline-flex space-x-4">
-            {galleryImages.slice(0, 4).map((src, index) => (
-              <div key={index} className="p-2 transition transform hover:scale-105 flex-shrink-0">
-                <img
-                  className="rounded-lg"
+      {/* <div className="mt-12 mb-10 z-20 bg-[#fbfbf8] p-4 mx-auto max-w-7xl rounded-lg shadow-lg relative">
+        <h1 className="text-4xl md:text-5xl font-bold mb-6">Gallery</h1>
+        <div className="overflow-x-hidden whitespace-nowrap relative">
+          <div 
+            className="inline-flex space-x-4 transition-transform duration-300 ease-in-out pb-16"
+            style={{ transform: `translateX(-${currentIndex * 400}px)` }}
+          >
+            {galleryImages.map((src, index) => (
+              <div
+                key={index}
+                className="w-full md:w-1/4 p-2 transition transform hover:scale-105 flex-shrink-0"
+              >
+                <Image
+                  className="rounded-lg object-cover shadow-lg"
                   src={src}
                   alt={`Gallery Image ${index + 1}`}
                   width={400}
@@ -114,21 +175,27 @@ const AboutPage = () => {
                 />
               </div>
             ))}
-            {/* Display rest of the images in a horizontally scrollable view */}
-            {galleryImages.slice(4).map((src, index) => (
-              <div key={index + 4} className="p-2 transition transform hover:scale-105 flex-shrink-0">
-                <img
-                  className="rounded-lg"
-                  src={src}
-                  alt={`Gallery Image ${index + 5}`}
-                  width={400}
-                  height={400}
-                />
-              </div>
-            ))}
           </div>
         </div>
-      </div>
+        <div className="absolute bottom-4 right-4 flex space-x-2">
+          <button
+            onClick={scrollLeft}
+            className={`bg-gray-100 flex items-center justify-center h-12 w-12 text-black rounded-full transition-colors disabled:opacity-50`}
+            disabled={isAtStart}
+            aria-label="Previous image"
+          >
+            <IconArrowNarrowLeft />
+          </button>
+          <button
+            onClick={scrollRight}
+            className={`bg-gray-100 flex items-center justify-center h-12 w-12 text-black rounded-full transition-colors disabled:opacity-50`}
+            aria-label="Next image"
+            disabled={isAtEnd}
+          >
+            <IconArrowNarrowRight />
+          </button>
+        </div>
+      </div> */}
     </>
   );
 };
