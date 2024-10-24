@@ -1,12 +1,12 @@
 "use client"; // This marks the file as a Client Component
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { Timeline } from "@/components/ui/timeline";
-import { Button } from "@nextui-org/react";
-import { IconArrowNarrowLeft, IconArrowNarrowRight } from "@tabler/icons-react";
+import { getPhotos, Photo } from "./helpers";
 import EmblaCarousel from "@/components/ui/carousel/carousel";
 import { EmblaOptionsType } from 'embla-carousel'
 import '@/app/about/embla.css'
+
 const OPTIONS: EmblaOptionsType = { align: 'start', loop: true }
 
 const data = [
@@ -109,41 +109,11 @@ const data = [
 ];
 
 const AboutPage = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAtStart, setIsAtStart] = useState(true);
-  const [isAtEnd, setIsAtEnd] = useState(false);
-  const galleryImages = [
-    { src: "/images/lorem.png", alt: "Lorem" },
-    { src: "/images/lorem.png", alt: "Lorem" },
-    { src: "/images/lorem.png", alt: "Lorem" },
-    { src: "/images/lorem.png", alt: "Lorem" },
-    { src: "/images/lorem.png", alt: "Lorem" },
-    { src: "/images/lorem.png", alt: "Lorem" },
-    { src: "/images/lorem.png", alt: "Lorem" },
-    { src: "/images/lorem.png", alt: "Lorem" },
-    { src: "/images/lorem.png", alt: "Lorem" },
-    { src: "/images/lorem.png", alt: "Lorem" },
-  ];
+  const [photos, setPhotos] = useState<Photo[]>([]);
 
-  const scrollLeft = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex((prevIndex) => prevIndex - 1);
-      setIsAtEnd(false);
-    }
-    if (currentIndex === 1) {
-      setIsAtStart(true);
-    }
-  };
-
-  const scrollRight = () => {
-    if (currentIndex < galleryImages.length - 4) {
-      setCurrentIndex((prevIndex) => prevIndex + 1);
-      setIsAtStart(false);
-    }
-    if (currentIndex === galleryImages.length - 5) {
-      setIsAtEnd(true);
-    }
-  };
+  useEffect(() => {
+    getPhotos().then(setPhotos);
+  }, []);
 
   return (
     <>
@@ -151,7 +121,7 @@ const AboutPage = () => {
         <Timeline data={data} />
       </div>
 
-      <EmblaCarousel slides={galleryImages} options={OPTIONS} />
+      <EmblaCarousel slides={photos} options={OPTIONS} isLoading={photos.length === 0} />
 
       {/* Image Gallery */}
       {/* <div className="mt-12 mb-10 z-20 bg-[#fbfbf8] p-4 mx-auto max-w-7xl rounded-lg shadow-lg relative">
