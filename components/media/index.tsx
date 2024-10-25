@@ -1,5 +1,6 @@
 import { BellIcon, Share2Icon, CalendarIcon, FileTextIcon } from "lucide-react";
 import ClientTweetCard from "@/components/ui/tweet-card/client-tweet-card";
+import { InstagramEmbed } from "react-social-media-embed";
 
 import { cn } from "@/lib/utils";
 import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
@@ -26,10 +27,17 @@ const features = [
     cta: "View Tweet",
     className: "col-span-3 lg:col-span-2",
     background: (
-        <div className="shadow-2xl bg-white rounded-xl absolute inset-0 m-auto w-[90%] md:w-2/3 h-2/3 flex items-center justify-center">
-          <ClientTweetCard id="1728421611899060449" />
-        </div>
-      ),
+      <div className="shadow-2xl bg-white rounded-xl absolute inset-0 m-auto w-[90%] md:w-2/3 h-2/3 flex items-center justify-center">
+        <ClientTweetCard id="1728421611899060449" />
+      </div>
+      // <div className="shadow-2xl bg-white rounded-xl absolute inset-0 m-auto w-fit h-fit flex items-center justify-center">
+      //   <InstagramEmbed
+      //     url="https://www.instagram.com/p/DBi8jvDPEsD"
+      //     width={500}
+      //     // captioned
+      //   />
+      // </div>
+    ),
   },
   {
     // Icon: Share2Icon,
@@ -62,12 +70,12 @@ const features = [
 export function Media() {
   return (
     <div className="bg-[#fbfbf8] container px-4 py-10">
-        <h2 className="text-4xl flex flex-row items-center gap-4 md:text-5xl font-bold mb-12 pt-12 text-[#302f2f]">
+      <h2 className="text-4xl flex flex-row items-center gap-4 md:text-5xl font-bold mb-12 pt-12 text-[#302f2f]">
         Media
-        </h2>
+      </h2>
       <BentoGrid>
         {features.map((feature, idx) => (
-        <BentoCard key={idx} {...feature} />
+          <BentoCard key={idx} {...feature} />
         ))}
       </BentoGrid>
     </div>

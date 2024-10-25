@@ -43,6 +43,7 @@
     "react-material-ui-carousel": "^3.4.2",
     "react-photo-album": "^3.0.2",
     "react-responsive": "^10.0.0",
+    "react-social-media-embed": "^2.5.17",
     "react-tweet": "^3.2.1",
     "rimraf": "^6.0.1",
     "sharp": "^0.33.5",
