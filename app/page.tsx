@@ -5,6 +5,8 @@ import { useInView } from "react-intersection-observer";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 import Image from "next/image";
 import heroImage from "@/public/images/hero-1.jpg";
+import { Media } from "@/components/media";
+
 import {
   Goal,
   CircleHelp,
@@ -210,52 +212,57 @@ export default function Home() {
         <Carousel items={cards} />
       </motion.div>
 
+
+        
+
       {/* Photos Section */}
       <motion.section
       ref={ref}
       initial={{ opacity: 0 }}
       animate={inView ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className={`w-full py-10 bg-[#fbfbf8] overflow-visible`}
+      className={`w-full py-10 bg-[#fbfbf8] relative`}
       >
-        <div className="container mx-auto px-4">
-        <div className="absolute top-0 -left-4 w-[40rem] h-[40rem] bg-[#467eb5] rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-        <div className="absolute top-0 -right-4 w-[40rem] h-[40rem] bg-[#f186c1] rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-        <div className="absolute -bottom-8 left-20 w-[40rem] h-[40rem] bg-[#d47557] rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+        <div className="container mx-auto px-4 relative">
+          <div className="absolute top-0 left-0 w-[10rem] h-[10rem] md:w-[30rem] md:h-[30rem] bg-[#467eb5] rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+          <div className="absolute top-0 right-0 w-[10rem] h-[10rem] md:w-[30rem] md:h-[30rem] bg-[#f186c1] rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+          <div className="absolute -bottom-16 left-1/2 w-[10rem] h-[10rem] md:w-[30rem] md:h-[30rem] bg-[#d47557] rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
 
-        <h2 className="text-4xl flex flex-row items-center gap-4 md:text-5xl font-bold mb-12 pt-12 text-[#302f2f]">
-          Photo Gallery
-          <a href="/about#gallery">
-            <ArrowRight className="w-8 h-8 hover:scale-110 transition-all duration-300" />
-          </a>
-        </h2>
+          <h2 className="text-4xl flex flex-row items-center gap-4 md:text-5xl font-bold mb-12 pt-12 text-[#302f2f] relative z-10">
+            Photo Gallery
+            <a href="/about#gallery">
+              <ArrowRight className="w-8 h-8 hover:scale-110 transition-all duration-300" />
+            </a>
+          </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {photos?.map((photo, index) => (
-            <motion.div
-              key={photo.id}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative aspect-square overflow-hidden rounded-[1.75rem] shadow-2xl group"
-            >
-              <Image
-                src={photo.src}
-                alt={photo.alt}
-                layout="fill"
-                objectFit="cover"
-                className="transition-all duration-300 group-hover:scale-110 group-hover:brightness-50"
-              />
-              <div className="absolute inset-0 flex items-end p-3 justify-left opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <p className="text-[#fbfbf8] text-center font-semibold px-4 py-2 text-md md:text-2xl">
-                  {photo.alt}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 relative z-10">
+            {photos?.map((photo, index) => (
+              <motion.div
+                key={photo.id}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="relative aspect-square overflow-hidden rounded-[1.75rem] shadow-2xl group"
+              >
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  layout="fill"
+                  objectFit="cover"
+                  className="transition-all duration-300 group-hover:scale-110 group-hover:brightness-50"
+                />
+                <div className="absolute inset-0 flex items-end p-3 justify-left opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="text-[#fbfbf8] text-center font-semibold px-4 py-2 text-md md:text-2xl">
+                    {photo.alt}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </motion.section>
+
+      <Media />
     </main>
   );
 }

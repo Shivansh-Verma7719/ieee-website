@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import puzzle from "@/public/images/puzzle/puzzle_piece_1.png";
 
 export default function Home() {
   const facultyMembers = [
@@ -177,7 +178,7 @@ export default function Home() {
             key={index}
             variants={cardVariants}
             whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
-            className="bg-white rounded-lg p-6 flex flex-col items-center shadow-lg"
+            className="bg-transparent p-6 flex flex-col items-center shadow-lg"
           >
             <div className="relative w-40 h-40 border-5 border-[#467eb5] rounded-full overflow-hidden">
               <Image
