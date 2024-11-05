@@ -35,9 +35,38 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   return (
     <div className="w-full font-sans md:px-10" ref={containerRef}>
       <div className="max-w-7xl mx-auto pt-28 pb-10 px-4">
-        <h2 className="text-4xl text-[#23417c] font-bold md:text-5xl mb-4 max-w-4xl">
+
+      <motion.div
+        className="absolute top-0 left-0 w-full h-full opacity-10"
+        animate={{
+          backgroundPosition: ["0% 0%", "100% 100%"],
+        }}
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          repeatType: "reverse",
+        }}
+      />
+      <motion.h2
+        className="text-left text-[#23417c] font-bold text-6xl pb-4 mb-6 mt-6 relative"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.75 }}
+      >
+        Our Story
+        <motion.div
+          className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#467eb5]"
+          initial={{ scaleX: 0, opacity: 0 }}
+          animate={{ scaleX: 1, opacity: 1 }}
+          transition={{ duration: 0.75, delay: 0.3 }}
+        />
+      </motion.h2>
+      
+        {/*<h2 className="text-4xl text-[#23417c] font-bold md:text-5xl mb-4 max-w-4xl">
           Our Story
-        </h2>
+          
+        </h2> */}
+        
         {/* <p className="text-sm md:text-base max-w-sm">
           IEEE Ashoka is a student-led chapter dedicated to fostering innovation
           and technological advancement on campus. We organize workshops,
