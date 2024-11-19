@@ -113,6 +113,7 @@ const AboutPage = () => {
 
   useEffect(() => {
     getPhotos().then(setPhotos);
+    console.log(photos);
   }, []);
 
   return (
@@ -122,50 +123,6 @@ const AboutPage = () => {
       </div>
 
       <EmblaCarousel slides={photos} options={OPTIONS} isLoading={photos.length === 0} />
-
-      {/* Image Gallery */}
-      {/* <div className="mt-12 mb-10 z-20 bg-[#fbfbf8] p-4 mx-auto max-w-7xl rounded-lg shadow-lg relative">
-        <h1 className="text-4xl md:text-5xl font-bold mb-6">Gallery</h1>
-        <div className="overflow-x-hidden whitespace-nowrap relative">
-          <div 
-            className="inline-flex space-x-4 transition-transform duration-300 ease-in-out pb-16"
-            style={{ transform: `translateX(-${currentIndex * 400}px)` }}
-          >
-            {galleryImages.map((src, index) => (
-              <div
-                key={index}
-                className="w-full md:w-1/4 p-2 transition transform hover:scale-105 flex-shrink-0"
-              >
-                <Image
-                  className="rounded-lg object-cover shadow-lg"
-                  src={src}
-                  alt={`Gallery Image ${index + 1}`}
-                  width={400}
-                  height={400}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="absolute bottom-4 right-4 flex space-x-2">
-          <button
-            onClick={scrollLeft}
-            className={`bg-gray-100 flex items-center justify-center h-12 w-12 text-black rounded-full transition-colors disabled:opacity-50`}
-            disabled={isAtStart}
-            aria-label="Previous image"
-          >
-            <IconArrowNarrowLeft />
-          </button>
-          <button
-            onClick={scrollRight}
-            className={`bg-gray-100 flex items-center justify-center h-12 w-12 text-black rounded-full transition-colors disabled:opacity-50`}
-            aria-label="Next image"
-            disabled={isAtEnd}
-          >
-            <IconArrowNarrowRight />
-          </button>
-        </div>
-      </div> */}
     </>
   );
 };

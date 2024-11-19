@@ -30,8 +30,10 @@ const CustomNavbar: React.FC = () => {
               <Image
                 src={IEEELogo}
                 alt="Quratr logo"
-                width={50}
-                height={50}
+                width={65}
+                priority
+                quality={70}
+                height={65}
               />
             </motion.div>
           </a>

@@ -15,54 +15,20 @@ import {
 } from "lucide-react";
 import getEvents, { Event } from "./events";
 import "react-photo-album/masonry.css";
-
-const photos = [
-  {
-    id: 1,
-    src: "/images/hero-1.jpg",
-    alt: "IEEE Ashoka Event 1",
-    width: 4,
-    height: 3,
-  },
-  {
-    id: 2,
-    src: "/images/hero-2.jpg",
-    alt: "IEEE Ashoka Event 2",
-    width: 1,
-    height: 1,
-  },
-  {
-    id: 3,
-    src: "/images/hero-3.jpg",
-    alt: "IEEE Ashoka Event 3",
-    width: 1,
-    height: 1,
-  },
-  {
-    id: 4,
-    src: "/images/hero-4.jpg",
-    alt: "IEEE Ashoka Event 4",
-    width: 4,
-    height: 3,
-  },
-  {
-    id: 5,
-    src: "/images/hero-5.jpg",
-    alt: "IEEE Ashoka Event 5",
-    width: 4,
-    height: 3,
-  },
-  {
-    id: 6,
-    src: "/images/hero-6.jpg",
-    alt: "IEEE Ashoka Event 6",
-    width: 4,
-    height: 3,
-  },
-];
+import { get6RandomPhotos } from "./helper";
+import { Photo } from "./about/helpers";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
+  const [photos, setPhotos] = useState<Photo[]>([]);
+
+  useEffect(() => {
+    const fetchPhotos = async () => {
+      const res = await get6RandomPhotos();
+      setPhotos(res);
+    };
+    fetchPhotos();
+  }, []);
 
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -212,16 +178,13 @@ export default function Home() {
         <Carousel items={cards} />
       </motion.div>
 
-
-        
-
       {/* Photos Section */}
       <motion.section
-      ref={ref}
-      initial={{ opacity: 0 }}
-      animate={inView ? { opacity: 1 } : { opacity: 0 }}
-      transition={{ duration: 0.5 }}
-      className={`w-full py-10 bg-[#fbfbf8] relative`}
+        ref={ref}
+        initial={{ opacity: 0 }}
+        animate={inView ? { opacity: 1 } : { opacity: 0 }}
+        transition={{ duration: 0.5 }}
+        className={`w-full py-10 bg-[#fbfbf8] relative`}
       >
         <div className="container mx-auto px-4 relative">
           <div className="absolute top-0 left-0 w-[10rem] h-[10rem] md:w-[30rem] md:h-[30rem] bg-[#467eb5] rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
@@ -245,15 +208,15 @@ export default function Home() {
                 className="relative aspect-square overflow-hidden rounded-[1.75rem] shadow-2xl group"
               >
                 <Image
-                  src={photo.src}
-                  alt={photo.alt}
+                  src={photo.image_url}
+                  alt={photo.caption}
                   layout="fill"
                   objectFit="cover"
                   className="transition-all duration-300 group-hover:scale-110 group-hover:brightness-50"
                 />
                 <div className="absolute inset-0 flex items-end p-3 justify-left opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <p className="text-[#fbfbf8] text-center font-semibold px-4 py-2 text-md md:text-2xl">
-                    {photo.alt}
+                    {photo.caption}
                   </p>
                 </div>
               </motion.div>
