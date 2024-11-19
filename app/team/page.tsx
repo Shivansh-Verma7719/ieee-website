@@ -26,7 +26,7 @@ export default function Home() {
       desig: "Title 3",
       email: "name@example.com",
       website: "example.org",
-      imageUrl: "/images/faculty3.jpg",
+      imageUrl: "/images/lorem.jpg",
     },
 
     {
@@ -34,7 +34,7 @@ export default function Home() {
       desig: "Title 4",
       email: "name@example.com",
       website: "example.org",
-      imageUrl: "/images/faculty4.jpg",
+      imageUrl: "/images/lorem.jpg",
     },
     // Add more faculty members as needed
   ];
@@ -76,15 +76,15 @@ export default function Home() {
 
   const General = [
     {
-      name: "Firstname Lastname",
+      name: "TEst longname  Aaryan",
       website: "example.org",
       email: "name1@example.com",
-      imageUrl: "/images/faculty1.jpg",
+      imageUrl: "/images/testaaryan.jpg",
       desig: "Title 1",
     },
 
     {
-      name: "Firstname Lastname",
+      name: "Short Aaryan",
       website: "example.org",
       email: "name2@example.com",
       imageUrl: "/images/faculty2.jpg",
@@ -247,7 +247,17 @@ export default function Home() {
               <p className="text-sm text-[#c2674b] font-bold">
                 {council.desig}
               </p>
-              <p className="text-sm text-[#d47557] font-bold"> </p>
+              <p className="text-sm text-[#d47557] font-bold"> 
+                <a href={`mailto:${council.email}`}>
+                  <Image
+                    src="https://static.vecteezy.com/system/resources/previews/020/009/614/large_2x/email-and-mail-icon-black-free-png.png"
+                    alt="Email"
+                    className="inline w-6 h-6 mr-1"
+                    width={24}
+                    height={24}
+                  />
+                </a>
+              </p>
             </div>
           </motion.div>
         ))}

@@ -22,7 +22,7 @@ const data = [
         </p>
         <div className="grid grid-cols-2 gap-4">
           <Image
-            src="/images/ieee-ashoka-event-1.jpg"
+            src="/images/IMG_6072.jpg"
             alt="IEEE Ashoka Workshop"
             width={500}
             height={500}
