@@ -113,7 +113,6 @@ const AboutPage = () => {
 
   useEffect(() => {
     getPhotos().then(setPhotos);
-    console.log(photos);
   }, []);
 
   return (
