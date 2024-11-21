@@ -6,7 +6,7 @@ import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Photo } from "@/app/about/helpers";
+import { Photo } from "@/app/about/actions";
 import { Skeleton } from "@nextui-org/react";
 
 type PropType = {
@@ -16,8 +16,8 @@ type PropType = {
 };
 
 const ImageSkeleton = () => (
-    <div className="relative aspect-square overflow-hidden rounded-[1.75rem] group">
-      <Skeleton className="w-full h-full" />
+  <div className="relative aspect-square overflow-hidden rounded-[1.75rem] group">
+    <Skeleton className="w-full h-full" />
   </div>
 );
 

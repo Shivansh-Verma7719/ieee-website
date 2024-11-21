@@ -14,7 +14,7 @@ export interface Event {
 }
 export default async function getEvents() {
     const supabase = createClient();
-    let { data, error } = await supabase.from("events").select("*");
+    let { data, error } = await supabase.from("events").select("*").order("datetime", { ascending: false });
     if (error || !data) {
         console.error(error);
         return [];
@@ -33,7 +33,6 @@ export default async function getEvents() {
         };
     });
 
-    console.log(parsedData);
 
     return parsedData;
 }

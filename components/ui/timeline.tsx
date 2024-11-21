@@ -48,7 +48,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
         }}
       />
       <motion.h2
-        className="text-left text-[#23417c] font-bold text-6xl pb-4 mb-6 mt-6 relative"
+        className="text-left text-[#23417c] font-bold md:text-6xl text-4xl pb-4 mb-6 mt-6 relative"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.75 }}
@@ -60,19 +60,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           animate={{ scaleX: 1, opacity: 1 }}
           transition={{ duration: 0.75, delay: 0.3 }}
         />
-      </motion.h2>
-      
-        {/*<h2 className="text-4xl text-[#23417c] font-bold md:text-5xl mb-4 max-w-4xl">
-          Our Story
-          
-        </h2> */}
-        
-        {/* <p className="text-sm md:text-base max-w-sm">
-          IEEE Ashoka is a student-led chapter dedicated to fostering innovation
-          and technological advancement on campus. We organize workshops,
-          seminars, and projects to bridge the gap between academic learning and
-          real-world applications in engineering and technology.
-        </p> */}
+        </motion.h2>
       </div>
 
       <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
