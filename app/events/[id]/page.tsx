@@ -93,7 +93,7 @@ export default function EventPage({ params }: { params: { id: string } }) {
             <MapPin className="w-5 h-5" /> {event.location}
           </p>
         </div>
-        {event.register && (
+        {(event.register !== "" && event.register !== null) && (
           <div className="bg-white shadow-lg rounded-lg p-6 flex items-center justify-center md:w-1/4 h-auto">
             <a
               href={event.register}
