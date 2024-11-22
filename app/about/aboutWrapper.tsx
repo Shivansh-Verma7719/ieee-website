@@ -15,7 +15,7 @@ const data = [
     title: "About",
     content: (
       <div>
-        <p className="text-neutral-800 text-base md:text-lg font-normal mb-8">
+        <p className="text-neutral-800 text-lg md:text-xl font-normal mb-8">
           The IEEE Ashoka Student Branch (IASB) is created to encourage, promote
           and reward distinction in the areas of computer science, biology and
           other areas of interest to IEEE at Ashoka University.
@@ -27,7 +27,7 @@ const data = [
     title: "What We Do",
     content: (
       <div>
-        <p className="text-neutral-800 text-base md:text-lg font-normal mb-4">
+        <p className="text-neutral-800 text-lg md:text-xl font-normal mb-4">
           At Ashoka University, our society presents a unique opportunity to
           cater to a student community from various academic backgrounds. With
           our flagship hands-on lab sessions, coupled with an earnest attempt to
@@ -72,7 +72,7 @@ const data = [
     title: "Our Impact",
     content: (
       <div>
-        <p className="text-neutral-800 text-base md:text-lg font-normal mb-4">
+        <p className="text-neutral-800 text-lg md:text-xl font-normal mb-4">
           Through our yearly fundraiser event, Run for a Cause, we have raised
           over ₹20,000 for Neev, the community engagement club at Ashoka, for
           STEM equipment for workshops for children around the area. Our yearly
@@ -86,6 +86,12 @@ const data = [
         <div className="grid grid-cols-3">
           <div className="flex flex-col gap-2">
             <h2 className="font-normal text-black text-4xl">
+              <NumberTicker value={3000} />+
+            </h2>
+            <p className="text-sm md:text-lg font-normal">Students Reached</p>
+          </div>
+          <div className="flex flex-col gap-2">
+            <h2 className="font-normal text-black text-4xl">
               <NumberTicker value={20} />+
             </h2>
             <p className="text-sm md:text-lg font-normal">Events Conducted</p>
@@ -96,14 +102,6 @@ const data = [
             </h2>
             <p className="text-sm md:text-lg font-normal">
               Workshops Conducted
-            </p>
-          </div>
-          <div className="flex flex-col gap-2">
-            <h2 className="font-normal text-black text-4xl">
-              <NumberTicker value={3000} />+
-            </h2>
-            <p className="text-sm md:text-lg font-normal">
-              Students Reached
             </p>
           </div>
         </div>
