@@ -5,8 +5,8 @@ import Footer from "@/components/footer";
 import TopScrollBar from "@/components/ui/topScrollBar";
 
 export const metadata: Metadata = {
-  title: "IEEE Ashoka Website",
-  description: "IEEE Ashoka Website",
+  title: "IEEE Ashoka",
+  description: "IEEE Ashoka",
 };
 
 export default function RootLayout({
