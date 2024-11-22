@@ -83,7 +83,7 @@ const data = [
           the opportunity to explore the sciences through a hands-on learning
           experience.
         </p>
-        <div className="grid grid-cols-3">
+        <div className="grid grid-cols-1 md:grid-cols-3">
           <div className="flex flex-col gap-2">
             <h2 className="font-normal text-black text-4xl">
               <NumberTicker value={3000} />+
