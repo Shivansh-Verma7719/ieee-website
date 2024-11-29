@@ -24,7 +24,7 @@ export default function Home() {
       name: "Dr. Partha Pratim Das",
       desig: "Faculty Advisor",
       email: "partha.das@ashoka.edu.in",
-      imageUrl: "/images/Partha pratim Das.webp",
+      imageUrl: "/images/Partha Pratim Das.webp",
     },
 
 
