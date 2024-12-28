@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Instagram, Linkedin, Youtube, Mail } from "lucide-react";
 import { useEffect } from "react";
 import { useState } from "react";

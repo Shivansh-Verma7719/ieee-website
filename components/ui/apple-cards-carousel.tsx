@@ -1,16 +1,14 @@
 "use client";
 import React, {
   useEffect,
-  useRef,
   useState,
   createContext,
-  useContext,
 } from "react";
 import { useInView } from "react-intersection-observer";
 import { IconArrowNarrowLeft, IconArrowNarrowRight } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Image, { ImageProps } from "next/image";
 import { Event } from "@/app/events";
 
@@ -34,7 +32,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
   const [canScrollLeft, setCanScrollLeft] = React.useState(false);
   const [canScrollRight, setCanScrollRight] = React.useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const { ref, inView } = useInView({
+  const { ref } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });

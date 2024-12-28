@@ -7,7 +7,7 @@ import submitQuery, { Query } from "./helper";
 import { Card, CardHeader, CardBody } from "@nextui-org/react";
 import { ShieldAlert, CheckCheck } from "lucide-react";
 
-const ContactPage = () => {
+export default function ContactPage() {
   const [query, setQuery] = useState<Query>({
     first_name: "",
     last_name: "",
@@ -47,7 +47,7 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-blue-100 to-purple-100 pt-24 lg:pt-32 pb-12 px-4 sm:px-6 lg:px-8">
+    <div className="h-screen bg-gradient-to-r from-blue-100 to-purple-100 pt-24 lg:pt-32 pb-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-[10rem] h-[10rem] md:w-[30rem] md:h-[30rem] bg-[#467eb5] rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
       <div className="absolute top-0 right-0 w-[10rem] h-[10rem] md:w-[30rem] md:h-[30rem] bg-[#f186c1] rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
       <div className="absolute -bottom-16 left-1/2 w-[10rem] h-[10rem] md:w-[30rem] md:h-[30rem] bg-[#d47557] rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
@@ -184,6 +184,4 @@ const ContactPage = () => {
       </div>
     </div>
   );
-};
-
-export default ContactPage;
+}

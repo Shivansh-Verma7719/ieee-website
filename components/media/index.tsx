@@ -1,8 +1,4 @@
-import { BellIcon, Share2Icon, CalendarIcon, FileTextIcon } from "lucide-react";
 import ClientTweetCard from "@/components/ui/tweet-card/client-tweet-card";
-import { InstagramEmbed } from "react-social-media-embed";
-
-import { cn } from "@/lib/utils";
 import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
 
 const features = [

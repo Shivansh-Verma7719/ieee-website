@@ -1,13 +1,6 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Image from "next/image";
-// import {
-//   Carousel,
-//   CarouselContent,
-//   CarouselItem,
-//   CarouselNext,
-//   CarouselPrevious,
-// } from "@/components/ui/carousel";
 import Carousel from "react-material-ui-carousel";
 
 const Hero = () => {

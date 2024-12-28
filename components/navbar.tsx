@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-import { motion, useTransform, useScroll } from "framer-motion";
+import { motion, useTransform, useScroll } from "motion/react";
 import { Menu, X } from "lucide-react";
 import IEEELogo from "@/public/images/logo.png";
 import { getPages } from "./pages";

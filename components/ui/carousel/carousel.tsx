@@ -5,7 +5,7 @@ import { PrevButton, NextButton, usePrevNextButtons } from "./buttons";
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Photo } from "@/app/about/actions";
 import { Skeleton } from "@nextui-org/react";
 
