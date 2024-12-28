@@ -63,6 +63,9 @@ export default function EventPage({ params }: { params: { id: string } }) {
 
   return (
     <div className="container mx-auto px-4 py-24">
+      <Link href="/events" className="text-blue-500 hover:underline block mt-6">
+        &larr; Back to Events
+      </Link>
       <div className="relative">
         <Image
           src={event.image}
@@ -93,7 +96,7 @@ export default function EventPage({ params }: { params: { id: string } }) {
             <MapPin className="w-5 h-5" /> {event.location}
           </p>
         </div>
-        {(event.register !== "" && event.register !== null) && (
+        {event.register !== "" && event.register !== null && (
           <div className="bg-white shadow-lg rounded-lg p-6 flex items-center justify-center md:w-1/4 h-auto">
             <a
               href={event.register}
@@ -105,18 +108,24 @@ export default function EventPage({ params }: { params: { id: string } }) {
         )}
       </div>
       {/* Event Description Section */}
-      <div className="bg-white shadow-lg rounded-lg p-6 mt-4">
+      <div className="bg-white flex flex-col md:flex-row shadow-lg rounded-lg p-6 mt-4">
         <div className="prose mt-8 md:text-lg">
           <h2 className="text-2xl md:text-3xl font-semibold mb-2 text-[#302f2f]">
             Description
           </h2>
           <p>{event.description}</p>
         </div>
+
+        <div className="flex justify-center w-full md:w-1/2 mt-4 md:mt-8">
+          <Image
+            src={event.image}
+            alt={`${event.name}`}
+            width={500}
+            height={500}
+            className="mx-auto w-full md:w-3/4 md:h-[38rem] object-cover rounded-lg shadow-lg"
+          />
+        </div>
       </div>
-      {/* Back to Events Link */}
-      <Link href="/events" className="text-blue-500 hover:underline block mt-6">
-        &larr; Back to Events
-      </Link>
     </div>
   );
 }
