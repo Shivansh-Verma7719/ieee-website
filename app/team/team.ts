@@ -64,7 +64,7 @@ export const ITteam = [
     desig: "Co-Director, IT",
   },
   {
-    name: "Firstname Lastname",
+    name: "testname Lastname",
     imageUrl: "/images/team/faculty1.jpg",
     desig: "IT Team",
   },
