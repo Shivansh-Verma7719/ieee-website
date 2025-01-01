@@ -156,22 +156,22 @@ export const EventsTeam = [
 export const PRteam = [
   {
     name: "Kashyap J",
-    imageUrl: "/images/team/Sashwat Dhanuka.jpg",
-    desig: "Co-Director, PR",
-  },
-  {
-    name: "Tamana Ail",
     imageUrl: "/images/team/Kashyap J.jpg",
     desig: "Co-Director, PR",
   },
   {
-    name: "Firstname Lastname",
-    imageUrl: "/images/team/faculty1.jpg",
+    name: "Tamana Ail",
+    imageUrl: "/images/team/Tamanna Ail.jpeg",
+    desig: "Co-Director, PR",
+  },
+  {
+    name: "Aadityan Ajay Iyer",
+    imageUrl: "/images/team/Aadityan Iyer.jpg",
     desig: "PR Team",
   },
   {
-    name: "Firstname Lastname",
-    imageUrl: "/images/team/faculty1.jpg",
+    name: "Tia Mohanani",
+    imageUrl: "/images/team/Tia Mohanani.jpg",
     desig: "PR Team",
   },
   {
