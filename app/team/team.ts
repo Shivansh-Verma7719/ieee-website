@@ -64,13 +64,13 @@ export const ITteam = [
     desig: "Co-Director, IT",
   },
   {
-    name: "testname Lastname",
-    imageUrl: "/images/team/faculty1.jpg",
+    name: "Abhimanyu Durvasula",
+    imageUrl: "/images/team/Abhimanyu Durvasula.jpg",
     desig: "IT Team",
   },
   {
-    name: "Firstname Lastname",
-    imageUrl: "/images/team/faculty1.jpg",
+    name: "Aarush Ram Anandh",
+    imageUrl: "/images/team/Aarush Anandh.jpeg",
     desig: "IT Team",
   },
   {
