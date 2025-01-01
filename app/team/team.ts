@@ -79,8 +79,8 @@ export const ITteam = [
     desig: "IT Team",
   },
   {
-    name: "Firstname Lastname",
-    imageUrl: "/images/team/faculty1.jpg",
+    name: "Parin Arora",
+    imageUrl: "/images/team/Parin Arora.jpg",
     desig: "IT Team",
   },
   {
