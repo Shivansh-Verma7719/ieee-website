@@ -35,7 +35,7 @@ export const CoreTeam = [
     desig: "Secretary",
   },
   {
-    name: "Core Member 2",
+    name: "Santripta Sharma",
     imageUrl: "/images/team/core2.jpg",
     desig: "Core Title 2",
   },
