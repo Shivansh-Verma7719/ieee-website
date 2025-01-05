@@ -30,24 +30,24 @@ export const Faculty = [
 
 export const CoreTeam = [
   {
-    name: "Agnim Agarwal",
+    name: "Santripta Sharma",
     imageUrl: "/images/team/Agnim Agarwal.jpg",
+    desig: "Chairperson",
+  },
+  {
+    name: "Vidur Kaushik",
+    imageUrl: "/images/team/core2.jpg",
+    desig: "Vice-Chairperson",
+  },
+  {
+    name: "Agnim Agarwal",
+    imageUrl: "/images/team/core3.jpg",
     desig: "Secretary",
   },
   {
-    name: "Santripta Sharma",
-    imageUrl: "/images/team/core2.jpg",
-    desig: "Core Title 2",
-  },
-  {
-    name: "Core Member 3",
-    imageUrl: "/images/team/core3.jpg",
-    desig: "Core Title 3",
-  },
-  {
-    name: "Core Member 4",
+    name: "Trsha Harish",
     imageUrl: "/images/team/core4.jpg",
-    desig: "Core Title 4",
+    desig: "Treasurer",
   },
   // Add more as needed
 ];
@@ -112,9 +112,9 @@ export const EventsTeam = [
     desig: "Co-Director, Events and Operations",
   },
   {
-    name: "Firstname Lastname",
+    name: "Mishti Rathod",
     imageUrl: "/images/team/faculty1.jpg",
-    desig: "Events and Operations Team",
+    desig: "Co-Director, Events and Operations",
   },
   {
     name: "Firstname Lastname",
@@ -218,7 +218,7 @@ export const GrowthTeam = [
     desig: "Co-Director, Growth",
   },
   {
-    name: "",
+    name: "Anisha Jain",
     imageUrl: "/images/team/Kashyap J.jpg",
     desig: "Co-Director, Growth",
   },
