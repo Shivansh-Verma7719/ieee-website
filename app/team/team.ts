@@ -228,47 +228,27 @@ export const GrowthTeam = [
     desig: "Co-Director, Growth",
   },
   {
-    name: "Firstname Lastname",
+    name: "Krishna Praneeth Sidde",
     imageUrl: "/images/team/faculty1.jpg",
     desig: "Growth Team",
   },
   {
-    name: "Firstname Lastname",
+    name: "Soham Lad",
     imageUrl: "/images/team/faculty1.jpg",
     desig: "Growth Team",
   },
   {
-    name: "Firstname Lastname",
+    name: "Sarthak Ghosh",
     imageUrl: "/images/team/  faculty1.jpg",
     desig: "Growth Team",
   },
   {
-    name: "Firstname Lastname",
+    name: "Roshni Pai",
     imageUrl: "/images/team/faculty1.jpg",
     desig: "Growth Team",
   },
   {
-    name: "Firstname Lastname",
-    imageUrl: "/images/team/faculty1.jpg",
-    desig: "Growth Team",
-  },
-  {
-    name: "Firstname Lastname",
-    imageUrl: "/images/team/faculty1.jpg",
-    desig: "Growth Team",
-  },
-  {
-    name: "Firstname Lastname",
-    imageUrl: "/images/team/faculty1.jpg",
-    desig: "Growth Team",
-  },
-  {
-    name: "Firstname Lastname",
-    imageUrl: "/images/team/faculty1.jpg",
-    desig: "Growth Team",
-  },
-  {
-    name: "Firstname Lastname",
+    name: "Kaushik Patra",
     imageUrl: "/images/team/faculty1.jpg",
     desig: "Growth Team",
   },
