@@ -195,37 +195,22 @@ export const PRteam = [
     desig: "PR Team",
   },
   {
-    name: "Firstname Lastname",
+    name: "Varun Bahl",
     imageUrl: "/images/team/faculty1.jpg",
     desig: "PR Team",
   },
   {
-    name: "Firstname Lastname",
+    name: "Anjashi Ghosh",
     imageUrl: "/images/team/faculty1.jpg",
     desig: "PR Team",
   },
   {
-    name: "Firstname Lastname",
+    name: "Vedant Gautam",
     imageUrl: "/images/team/faculty1.jpg",
     desig: "PR Team",
   },
   {
-    name: "Firstname Lastname",
-    imageUrl: "/images/team/faculty1.jpg",
-    desig: "PR Team",
-  },
-  {
-    name: "Firstname Lastname",
-    imageUrl: "/images/team/faculty1.jpg",
-    desig: "PR Team",
-  },
-  {
-    name: "Firstname Lastname",
-    imageUrl: "/images/team/faculty1.jpg",
-    desig: "PR Team",
-  },
-  {
-    name: "Firstname Lastname",
+    name: "Shivanshi Singh",
     imageUrl: "/images/team/faculty1.jpg",
     desig: "PR Team",
   },
