@@ -95,7 +95,7 @@ export const ITteam = [
   },
   {
     name: "Samyak Baid",
-    imageUrl: "/images/team/faculty1.jpg",
+    imageUrl: "/images/team/Samyak Baid.jpg",
     desig: "IT Team",
   },
 ];
@@ -103,12 +103,12 @@ export const ITteam = [
 export const EventsTeam = [
   {
     name: "Gayatri Subhash",
-    imageUrl: "/images/team/Sashwat Dhanuka.jpg",
+    imageUrl: "/images/team/Gayatri Subash.heic",
     desig: "Co-Director, Events and Operations",
   },
   {
-    name: "Saachi Mogdal",
-    imageUrl: "/images/team/Kashyap J.jpg",
+    name: "Saachi Moudgal",
+    imageUrl: "/images/team/Saachi Moudgal.jpg",
     desig: "Co-Director, Events and Operations",
   },
   {
@@ -118,32 +118,32 @@ export const EventsTeam = [
   },
   {
     name: "Ishaan Pershad",
-    imageUrl: "/images/team/faculty1.jpg",
+    imageUrl: "/images/team/Ishaan Pershad.jpg",
     desig: "Events and Operations Team",
   },
   {
     name: "Gayatri Taneja",
-    imageUrl: "/images/team/faculty1.jpg",
+    imageUrl: "/images/team/Gayatri Taneja.jpeg",
     desig: "Events and Operations Team",
   },
   {
     name: "Megha Mudakkayil",
-    imageUrl: "/images/team/faculty1.jpg",
+    imageUrl: "/images/team/Megha Mudakkayil.jpg",
     desig: "Events and Operations Team",
   },
   {
     name: "Kenisha Chandak",
-    imageUrl: "/images/team/faculty1.jpg",
+    imageUrl: "/images/team/Kenisha Chandak.jpg",
     desig: "Events and Operations Team",
   },
   {
     name: "Dheer Jhaveri",
-    imageUrl: "/images/team/faculty1.jpg",
+    imageUrl: "/images/team/Dheer Jhaveri.jpg",
     desig: "Events and Operations Team",
   },
   {
     name: "Riday Chatterjee",
-    imageUrl: "/images/team/faculty1.jpg",
+    imageUrl: "/images/team/Riday Chatterjee.jpg",
     desig: "Events and Operations Team",
   },
   {
@@ -153,7 +153,7 @@ export const EventsTeam = [
   },
   {
     name: "Poulomi Sarkar",
-    imageUrl: "/images/team/faculty1.jpg",
+    imageUrl: "/images/team/Poulomi Sarkar.jpg",
     desig: "Events and Operations Team",
   },
   {
@@ -163,12 +163,12 @@ export const EventsTeam = [
   },
   {
     name: "Sarthak Saini",
-    imageUrl: "/images/team/faculty1.jpg",
+    imageUrl: "/images/team/Sarthak Saini.jpg",
     desig: "Events and Operations Team",
   },
   {
     name: "Papaa Morindat",
-    imageUrl: "/images/team/faculty1.jpg",
+    imageUrl: "/images/team/Papaa Morindat.jpg",
     desig: "Events and Operations Team",
   },
 ];
@@ -201,7 +201,7 @@ export const PRteam = [
   },
   {
     name: "Anjashi Ghosh",
-    imageUrl: "/images/team/faculty1.jpg",
+    imageUrl: "/images/team/Anjashi Ghosh.jpeg",
     desig: "PR Team",
   },
   {
@@ -224,32 +224,32 @@ export const GrowthTeam = [
   },
   {
     name: "Anisha Jain",
-    imageUrl: "/images/team/Kashyap J.jpg",
+    imageUrl: "/images/team/Anisha Jain.jpeg",
     desig: "Co-Director, Growth",
   },
   {
     name: "Krishna Praneeth Sidde",
-    imageUrl: "/images/team/faculty1.jpg",
+    imageUrl: "/images/team/Krishna Praneeth Sidde.jpeg",
     desig: "Growth Team",
   },
   {
     name: "Soham Lad",
-    imageUrl: "/images/team/faculty1.jpg",
+    imageUrl: "/images/team/Soham LAd.jpeg",
     desig: "Growth Team",
   },
   {
     name: "Sarthak Ghosh",
-    imageUrl: "/images/team/  faculty1.jpg",
+    imageUrl: "/images/team/Sarthak Ghosh.jpg",
     desig: "Growth Team",
   },
   {
     name: "Roshni Pai",
-    imageUrl: "/images/team/faculty1.jpg",
+    imageUrl: "/images/teamRoshni Pai.jpeg",
     desig: "Growth Team",
   },
   {
     name: "Kaushik Patra",
-    imageUrl: "/images/team/faculty1.jpg",
+    imageUrl: "/images/team/Kaushik Patra.jpeg",
     desig: "Growth Team",
   },
 ];
