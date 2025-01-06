@@ -176,7 +176,7 @@ export const EventsTeam = [
 export const PRteam = [
   {
     name: "Kashyap J",
-    imageUrl: "/images/team/Kashyap J.jpg",
+    imageUrl: "/images/team/Kashyap J.jpeg",
     desig: "Co-Director, PR",
   },
   {
