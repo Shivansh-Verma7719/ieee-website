@@ -41,7 +41,7 @@ export const CoreTeam = [
   },
   {
     name: "Agnim Agarwal",
-    imageUrl: "/images/team/core3.jpg",
+    imageUrl: "/images/team/Agnim Agarwal.jpg",
     desig: "Secretary",
   },
   {
