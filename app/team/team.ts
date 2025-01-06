@@ -55,7 +55,7 @@ export const CoreTeam = [
 export const ITteam = [
   {
     name: "Shivansh Verma",
-    imageUrl: "/images/team/Kashyap J.jpg",
+    imageUrl: "/images/team/shivansh_verma.jpeg",
     desig: "Co-Director, IT",
   },
   {
