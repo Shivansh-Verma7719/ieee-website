@@ -103,7 +103,7 @@ export const ITteam = [
 export const EventsTeam = [
   {
     name: "Gayatri Subhash",
-    imageUrl: "/images/team/Gayatri Subash.jpg",
+    imageUrl: "/images/team/Gayatri Subhash.jpg",
     desig: "Co-Director, Events and Operations",
   },
   {
@@ -138,7 +138,7 @@ export const EventsTeam = [
   },
   {
     name: "Dheer Jhaveri",
-    imageUrl: "/images/team/Dheer Jhaveri.jpg",
+    imageUrl: "/images/team/Dheer Jhaveri.jpeg",
     desig: "Events and Operations Team",
   },
   {
@@ -158,7 +158,7 @@ export const EventsTeam = [
   },
   {
     name: "Hrishika Popli",
-    imageUrl: "/images/team/faculty1.jpg",
+    imageUrl: "/images/team/Hrishika Popli.jpeg",
     desig: "Events and Operations Team",
   },
   {
@@ -191,7 +191,7 @@ export const PRteam = [
   },
   {
     name: "Tia Mohanani",
-    imageUrl: "/images/team/Tia Mohanani.jpg",
+    imageUrl: "/images/team/Tia Mohanani.JPG",
     desig: "PR Team",
   },
   {
@@ -219,7 +219,7 @@ export const PRteam = [
 export const GrowthTeam = [
   {
     name: "Rhea Wali",
-    imageUrl: "/images/team/Sashwat Dhanuka.jpg",
+    imageUrl: "/images/team/lorem.jpg",
     desig: "Co-Director, Growth",
   },
   {
@@ -234,7 +234,7 @@ export const GrowthTeam = [
   },
   {
     name: "Soham Lad",
-    imageUrl: "/images/team/Soham LAd.jpeg",
+    imageUrl: "/images/team/Soham Lad.jpeg",
     desig: "Growth Team",
   },
   {
@@ -244,7 +244,7 @@ export const GrowthTeam = [
   },
   {
     name: "Roshni Pai",
-    imageUrl: "/images/teamRoshni Pai.jpeg",
+    imageUrl: "/images/team/Roshni Pai.jpeg",
     desig: "Growth Team",
   },
   {
