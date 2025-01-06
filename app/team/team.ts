@@ -103,7 +103,7 @@ export const ITteam = [
 export const EventsTeam = [
   {
     name: "Gayatri Subhash",
-    imageUrl: "/images/team/Gayatri Subash.heic",
+    imageUrl: "/images/team/Gayatri Subash.jpg",
     desig: "Co-Director, Events and Operations",
   },
   {
