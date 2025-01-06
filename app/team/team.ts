@@ -7,7 +7,7 @@ export const Faculty = [
   },
 
   {
-    name: "Subhashis Banerjee",
+    name: "Dr. Subhashis Banerjee",
     desig: "Institutional Department Head",
     email: "suban@ashoka.edu.in",
     imageUrl: "/images/team/Suban.jpg",
