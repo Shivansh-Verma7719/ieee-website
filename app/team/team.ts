@@ -31,7 +31,7 @@ export const Faculty = [
 export const CoreTeam = [
   {
     name: "Santripta Sharma",
-    imageUrl: "/images/team/Agnim Agarwal.jpg",
+    imageUrl: "/images/team/Santripta Sharma.jpeg",
     desig: "Chairperson",
   },
   {
