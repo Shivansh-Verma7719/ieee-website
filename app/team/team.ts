@@ -146,11 +146,7 @@ export const EventsTeam = [
     imageUrl: "/images/team/Riday Chatterjee.jpg",
     desig: "Events and Operations Team",
   },
-  {
-    name: "Shagnik Dasgupta",
-    imageUrl: "/images/team/faculty1.jpg",
-    desig: "Events and Operations Team",
-  },
+  
   {
     name: "Poulomi Sarkar",
     imageUrl: "/images/team/Poulomi Sarkar.jpg",
