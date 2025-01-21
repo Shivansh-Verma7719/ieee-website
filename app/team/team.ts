@@ -192,7 +192,7 @@ export const PRteam = [
   },
   {
     name: "Varun Bahl",
-    imageUrl: "/images/team/faculty1.jpg",
+    imageUrl: "/images/team/Varun Bahl.jpg",
     desig: "PR Team",
   },
   {
@@ -202,12 +202,12 @@ export const PRteam = [
   },
   {
     name: "Vedant Gautam",
-    imageUrl: "/images/team/faculty1.jpg",
+    imageUrl: "/images/team/Vedant Gautam.jpg",
     desig: "PR Team",
   },
   {
     name: "Shivanshi Singh",
-    imageUrl: "/images/team/faculty1.jpg",
+    imageUrl: "/images/team/Shivanshi Singh.jpg",
     desig: "PR Team",
   },
 ];
@@ -215,7 +215,7 @@ export const PRteam = [
 export const GrowthTeam = [
   {
     name: "Rhea Wali",
-    imageUrl: "/images/team/lorem.jpg",
+    imageUrl: "/images/team/Rhea Wali.jpg",
     desig: "Co-Director, Growth",
   },
   {
