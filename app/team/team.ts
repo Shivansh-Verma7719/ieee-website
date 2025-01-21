@@ -46,7 +46,7 @@ export const CoreTeam = [
   },
   {
     name: "Trsha Harish",
-    imageUrl: "/images/team/core4.jpg",
+    imageUrl: "/images/team/Trsha Haruish.jpeg",
     desig: "Treasurer",
   },
   // Add more as needed
@@ -85,7 +85,7 @@ export const ITteam = [
   },
   {
     name: "Soham Tulsyan",
-    imageUrl: "/images/team/faculty1.jpg",
+    imageUrl: "/images/team/Soham Tulsyan.jpeg",
     desig: "IT Team",
   },
   {
@@ -113,7 +113,7 @@ export const EventsTeam = [
   },
   {
     name: "Mishti Rathod",
-    imageUrl: "/images/team/faculty1.jpg",
+    imageUrl: "/images/team/Mishti Rathod.jpeg",
     desig: "Co-Director, Events and Operations",
   },
   {
@@ -172,7 +172,7 @@ export const EventsTeam = [
 export const PRteam = [
   {
     name: "Kashyap J",
-    imageUrl: "/images/team/Kashyap J.jpeg",
+    imageUrl: "/images/team/Kashyap J.jpg",
     desig: "Co-Director, PR",
   },
   {
