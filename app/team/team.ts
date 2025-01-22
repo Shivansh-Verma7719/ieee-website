@@ -235,7 +235,7 @@ export const GrowthTeam = [
   },
   {
     name: "Sarthak Ghosh",
-    imageUrl: "/images/team/Sarthak Ghosh.jpg",
+    imageUrl: "/images/team/Sarthak Ghosh.jpeg",
     desig: "Growth Team",
   },
   {
