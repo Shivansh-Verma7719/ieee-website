@@ -176,7 +176,7 @@ export const PRteam = [
     desig: "Co-Director, PR",
   },
   {
-    name: "Tamana Ail",
+    name: "Tamanna Ail",
     imageUrl: "/images/team/Tamanna Ail.jpeg",
     desig: "Co-Director, PR",
   },
