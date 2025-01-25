@@ -6,6 +6,8 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import submitQuery, { Query } from "./helper";
 import { Card, CardHeader, CardBody } from "@nextui-org/react";
 import { ShieldAlert, CheckCheck } from "lucide-react";
+import Link from "next/link";
+import { Instagram, Twitter, Linkedin, Youtube } from "lucide-react";
 
 export default function ContactPage() {
   const [query, setQuery] = useState<Query>({
@@ -148,8 +150,8 @@ export default function ContactPage() {
                 Contact Information
               </h2>
               <p className="text-gray-700 flex items-center">
-                <MapPin className="w-8 h-8 mr-2" />
-                <a
+                <MapPin className="w-10 h-10 hover:scale-110 transition-transform text-[#467eb5] mr-2" />
+                <Link
                   href="https://www.google.com/maps/place/Ashoka+University/@28.9469475,77.1031697,17z/data=!3m1!4b1!4m6!3m5!1s0x390dadd1aaaa9d5d:0xb7a3d4d03b0e0fde!8m2!3d28.9469475!4d77.1057446!16s%2Fm%2F0_1n0yd"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -157,16 +159,61 @@ export default function ContactPage() {
                 >
                   Ashoka University, Rajiv Gandhi Education City, Sonipat,
                   Haryana 131029
-                </a>
+                </Link>
               </p>
               <div className="flex flex-row gap-2">
-                <Mail className="w-6 h-6 mr-2" />
-                <p className="text-gray-700 mt-2">ieee.asb@ashoka.edu.in</p>
+                <Mail className="w-6 h-6 hover:scale-110 transition-transform text-[#467eb5]" />
+                <p className="text-gray-700 mt-2 -translate-y-1">
+                  ieee.asb@ashoka.edu.in
+                </p>
               </div>
               <div className="flex flex-row gap-2">
-                <Phone className="w-6 h-6 mr-2" />
-                <p className="text-gray-700 mt-2">+91 9999999999</p>
+                <Phone className="w-6 h-6 hover:scale-110 transition-transform text-[#467eb5]" />
+                <p className="text-gray-700 mt-2 -translate-y-1">+91 8700802455</p>
               </div>
+              
+              <hr className="my-2 border-gray-400" />
+
+              <div className="mt-4">
+                <h3 className="text-xl font-semibold mb-4 text-[#302f2f]">
+                  Follow Us
+                </h3>
+                <div className="flex justify-start space-x-6">
+                  <Link
+                    href="https://www.instagram.com/ieee.ashoka"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#467eb5] hover:scale-110 transition-transform"
+                  >
+                    <Instagram size={24} />
+                  </Link>
+                  <Link
+                    href="https://x.com/IEEEAshoka"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#467eb5] hover:scale-110 transition-transform"
+                  >
+                    <Twitter size={24} />
+                  </Link>
+                  <Link
+                    href="https://www.linkedin.com/company/ieee-ashoka-student-branch"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#467eb5] hover:scale-110 transition-transform"
+                  >
+                    <Linkedin size={24} />
+                  </Link>
+                  <Link
+                    href="https://www.youtube.com/@IEEEAshoka"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#467eb5] hover:scale-110 transition-transform"
+                  >
+                    <Youtube size={24} />
+                  </Link>
+                </div>
+              </div>
+
               <div className="mt-4 h-64 w-full">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3494.9261976237996!2d77.10316971505713!3d28.946947582311683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390dadd1aaaa9d5d%3A0xb7a3d4d03b0e0fde!2sAshoka%20University!5e0!3m2!1sen!2sin!4v1650456844399!5m2!1sen!2sin"
