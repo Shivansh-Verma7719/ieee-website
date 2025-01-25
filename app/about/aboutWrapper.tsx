@@ -16,9 +16,11 @@ const data = [
     content: (
       <div>
         <p className="text-neutral-800 text-lg md:text-xl font-normal mb-8">
-          The IEEE Ashoka Student Branch (IASB) is created to encourage, promote
-          and reward distinction in the areas of computer science, biology and
-          other areas of interest to IEEE at Ashoka University.
+          The IEEE Ashoka Student Branch was founded to foster holistic
+          development among STEM students at Ashoka University. Our mission is
+          to encourage excellence and collaboration across STEM disciplines,
+          providing essential skills and leadership training for an industry or
+          academia career.
         </p>
       </div>
     ),
@@ -33,7 +35,9 @@ const data = [
           our flagship hands-on lab sessions, coupled with an earnest attempt to
           increase technological literacy in the community at large, we look
           forward to providing scientific exposure that leads to the development
-          of an enthusiastic and inclusive STEM audience.
+          of an enthusiastic and inclusive STEM audience. We have garnered
+          immense positive feedback on our work over the years and iteratively
+          grown our team to 40+ members (and counting!).
         </p>
         <div className="grid grid-cols-2 gap-4">
           <Image
@@ -50,7 +54,7 @@ const data = [
             height={500}
             className="rounded-lg object-cover h-36 md:h-56 lg:h-80 w-full shadow-lg"
           />
-          <Image
+          {/* <Image
             src="/images/about/run.png"
             alt="Run for a Cause"
             width={500}
@@ -63,7 +67,7 @@ const data = [
             width={500}
             height={500}
             className="rounded-lg object-cover h-36 md:h-56 lg:h-80 w-full shadow-lg"
-          />
+          /> */}
         </div>
       </div>
     ),

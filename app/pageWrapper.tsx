@@ -68,7 +68,7 @@ export default function PageWrapper({
               IEEE Ashoka
             </h1>
             <p className="text-xl md:text-2xl text-[#fbfbf8] mb-8">
-              Building the culture around STEM @ Ashoka!
+              Building Bridges in STEM @ Ashoka
             </p>
           </motion.div>
           <motion.div
@@ -116,10 +116,8 @@ export default function PageWrapper({
                 Our Mission
               </h3>
               <div className="text-[#fbfbf8] text-lg">
-                Our mission is to help students acquire lasting skills that set
-                them apart for prestigious positions in business and academics
-                by providing a variety of service programmes and leadership
-                training.
+                Building bridges between the different STEM departments,
+                allowing for true interdisciplinarity
               </div>
             </motion.div>
 
@@ -136,9 +134,9 @@ export default function PageWrapper({
                 What We Do
               </h3>
               <div className="text-[#fbfbf8] text-lg">
-                At Ashoka University, our society presents a unique opportunity
-                to cater to a student community from various academic
-                backgrounds.
+                We organise events, such as professional talks, workshops,
+                research presentations, competitions, and more, in order to
+                bring as many people in the fold as possible
               </div>
             </motion.div>
             <motion.div
@@ -154,9 +152,9 @@ export default function PageWrapper({
                 Our Vision
               </h3>
               <div className="text-[#fbfbf8] text-lg">
-                To establish IEEE Ashoka as an IEEE chapter to promote STEM at
-                by setting up clubs under IEEE Ashoka Student Chapters for
-                hyperfocused communities.
+                To leverage Ashoka&apos;s unique position as a liberal arts
+                university and realise the goal of true interdisciplinarity, by
+                breaking down barriers between existing academic silos
               </div>
             </motion.div>
           </div>
