@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://ieee-ashoka.in
+
+# Sitemaps
+Sitemap: https://ieee-ashoka.in/sitemap.xml
