@@ -118,7 +118,7 @@ export default function EventPage({ params }: { params: { id: string } }) {
 
         <div className="flex justify-center w-full md:w-1/2 mt-4 md:mt-8">
           <Image
-            src={event.poster_image}
+            src={event.poster_image || event.image}
             alt={`${event.name}`}
             width={500}
             height={500}
