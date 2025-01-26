@@ -106,13 +106,13 @@ export function ExpandableCardDemo({ cards }: { cards: Event[] }) {
       <ul className="mx-auto w-full gap-4">
         {cards.map((card, index) => (
           <motion.div
-            layoutId={`card-${card.name}-${id}`}
-            key={`card-${card.name}-${id}`}
+            layoutId={`card-${card.name}-${id}-${index}`}
+            key={`card-${card.name}-${id}-${index}`}
             onClick={() => setActive(card)}
             className="p-6 flex flex-col md:flex-row justify-between items-center rounded-xl cursor-pointer shadow-md"
           >
             <div className="flex gap-4 flex-col md:flex-row items-center md:items-start">
-              <motion.div layoutId={`image-${card.name}-${id}`}>
+              <motion.div layoutId={`image-${card.name}-${id}-${index}`}>
                 <Image
                   width={200}
                   height={200}
@@ -123,19 +123,19 @@ export function ExpandableCardDemo({ cards }: { cards: Event[] }) {
               </motion.div>
               <div className="">
                 <motion.h2
-                  layoutId={`title-${card.name}-${id}`}
+                  layoutId={`title-${card.name}-${id}-${index}`}
                   className="text-xl font-bold text-neutral-800 text-center md:text-left"
                 >
                   {card.name}
                 </motion.h2>
                 <motion.p
-                  layoutId={`description-${card.category}-${id}`}
+                  layoutId={`description-${card.category}-${id}-${index}`}
                   className="text-neutral-600 text-center md:text-left"
                 >
                   {card.category}
                 </motion.p>
                 <motion.p
-                  layoutId={`description-${card.date}-${id}`}
+                  layoutId={`description-${card.date}-${id}-${index}`}
                   className="text-neutral-600 text-center md:text-left"
                 >
                   {card.date}
@@ -143,7 +143,7 @@ export function ExpandableCardDemo({ cards }: { cards: Event[] }) {
               </div>
             </div>
             <motion.button
-              layoutId={`button-${card.name}-${id}`}
+              layoutId={`button-${card.name}-${id}-${index}`}
               className="px-4 py-2 text-sm rounded-full font-bold bg-gray-100 hover:bg-[#f186c1] hover:text-white text-black transition-all duration-100 mt-4 md:mt-0"
             >
               Learn More
