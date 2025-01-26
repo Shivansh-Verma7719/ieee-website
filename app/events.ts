@@ -11,6 +11,8 @@ export interface Event {
     location: string;
     description: string;
     one_liner: string;
+    poster_image: string;
+    banner_image: string;
 }
 export default async function getEvents() {
     const supabase = createClient();

@@ -68,7 +68,7 @@ export default function EventPage({ params }: { params: { id: string } }) {
       </Link>
       <div className="relative">
         <Image
-          src={event.image}
+          src={event.banner_image}
           alt={`${event.name}`}
           width={1000}
           height={1000}
@@ -118,7 +118,7 @@ export default function EventPage({ params }: { params: { id: string } }) {
 
         <div className="flex justify-center w-full md:w-1/2 mt-4 md:mt-8">
           <Image
-            src={event.image}
+            src={event.poster_image}
             alt={`${event.name}`}
             width={500}
             height={500}
