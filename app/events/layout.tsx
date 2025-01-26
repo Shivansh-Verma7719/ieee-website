@@ -4,8 +4,8 @@ import TopScrollBar from "@/components/ui/topScrollBar";
 import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
-  title: "IEEE Ashoka | Events",
-  description: "IEEE Ashoka | Events",
+  title: "Events | IEEE Ashoka",
+  description: "Events | IEEE Ashoka",
 };
 
 export default function EventsLayout({

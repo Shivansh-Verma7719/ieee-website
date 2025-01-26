@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "IEEE Ashoka | Event",
-  description: "IEEE Ashoka | Event",
+  title: "Event | IEEE Ashoka",
+  description: "Event | IEEE Ashoka",
 };
 
 export default function EventLayout({

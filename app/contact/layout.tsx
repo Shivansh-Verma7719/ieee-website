@@ -3,8 +3,8 @@ import CustomNavbar from "@/components/navbar";
 import TopScrollBar from "@/components/ui/topScrollBar";
 
 export const metadata: Metadata = {
-  title: "IEEE Ashoka | Contact",
-  description: "IEEE Ashoka | Contact",
+  title: "Contact | IEEE Ashoka",
+  description: "Contact | IEEE Ashoka",
 };
 
 export default function ContactLayout({
