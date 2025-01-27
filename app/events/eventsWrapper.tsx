@@ -4,7 +4,7 @@ import { ExpandableCardDemo } from "@/components/ui/expandableCards";
 import { Event } from "@/app/events";
 
 const EventsWrapper = ({ events }: { events: Event[] }) => {
-  console.log(events)
+  // console.log(events)
   return (
     <div className="container mx-auto px-12 sm:px-24 lg:px-32 py-12">
       <div className="space-y-8 sm:space-y-10">
