@@ -88,11 +88,11 @@ export const ITteam = [
     imageUrl: "/images/team/Soham Tulsyan.jpeg",
     desig: "IT Team",
   },
-  {
-    name: "Ayush Chauhan",
-    imageUrl: "/images/team/Ayush.jpg",
-    desig: "IT Team",
-  },
+  // {
+  //   name: "Ayush Chauhan",
+  //   imageUrl: "/images/team/Ayush.jpg",
+  //   desig: "IT Team",
+  // },
   {
     name: "Samyak Baid",
     imageUrl: "/images/team/Samyak Baid.jpg",
