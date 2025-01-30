@@ -122,7 +122,7 @@ export default function EventPage({ params }: { params: { id: string } }) {
             alt={`${event.name}`}
             width={500}
             height={500}
-            className="mx-auto w-full md:w-3/4 md:h-[38rem] object-cover rounded-lg shadow-lg"
+            className="mx-auto w-full md:w-3/4 md:h-[38rem] object-contain rounded-lg shadow-lg"
           />
         </div>
       </div>
